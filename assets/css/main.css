@@ -189,7 +189,7 @@ pre {
 #blog-title-text {
     /* h1.heading */
     font-size: 2rem; /* 32px */
-    line-height: 125%;
+    line-height: 100%;
 }
 
 /* ============
@@ -424,7 +424,7 @@ pre {
     position: relative;
     min-height: 150px;
     width: 100%;
-    background: url('http://static.tumblr.com/f8gk9za/FmDoaxehu/nocover.png') no-repeat;
+    background: url('http://static.tumblr.com/f8gk9za/dDtoawnoi/rapture-records-square.png') no-repeat;
     -webkit-background-size: 150px 150px;
     -moz-background-size: 150px 150px;
     -o-background-size: 150px 150px;

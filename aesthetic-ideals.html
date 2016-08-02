@@ -46,20 +46,17 @@
         <meta name="color:Social Icons" content="{AccentColor}"> <!-- #698845 -->
         <meta name="color:Social Icons Hover" content="{AccentColor}"> <!-- #3d785c -->
 
-        <meta name="font:Heading Font" content="{TitleFont}">
-        <meta name="font:Subheading Font" content="{TitleFont}">
-
-        <meta name="select:Heading Font Weight" content="bold" title="Bold">
         <meta name="select:Heading Font Weight" content="normal" title="Normal"> <!-- * -->
+        <meta name="select:Heading Font Weight" content="bold" title="Bold">
 
-        <meta name="select:Subheading Font Weight" content="bold" title="Bold">
         <meta name="select:Subheading Font Weight" content="normal" title="Normal"> <!-- * -->
+        <meta name="select:Subheading Font Weight" content="bold" title="Bold">
 
         <meta name="select:Logo Shape" content="circle" title="Circle"> <!-- * -->
         <meta name="select:Logo Shape" content="square" title="Square">
 
         <meta name="select:Navigation Style" content="horizontal" title="Default">
-        <meta name="select:Navigation Style" content="dropdown" title="Slide Down from Top">
+        <meta name="select:Navigation Style" content="dropdown" title="Slide Down">
 
         <meta name="if:Logo Hover Effect" content="1">
         <meta name="if:Show Blog Title" content="1">
@@ -69,10 +66,10 @@
         <meta name="if:Show Jump Pagination" content="1">
 
         <meta name="text:Custom Heading Font URL" content="">
-        <meta name="text:Custom Heading Font Name" content=""> <!-- Limelight -->
+        <meta name="text:Custom Heading Font Name" content="">
 
         <meta name="text:Custom Subheading Font URL" content="">
-        <meta name="text:Custom Subheading Font Name" content=""> <!-- Trochut -->
+        <meta name="text:Custom Subheading Font Name" content="">
 
         <meta name="text:Ask Link Label" content="">
         <meta name="text:Submit Link Label" content="">
@@ -104,18 +101,16 @@
         <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
         <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/eLuoakle3/normalize.min.css">
-        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/LDdobafdy/main.css">
-        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/XPSobacwp/rapture-icons.css">
+        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/Oziobatng/main.css">
+        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/0Flobato0/rapture-icons.css">
 
         <!-- Custom Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i|Limelight|Trochut:400,400i,700&subset=latin-ext">
         {block:IfCustomHeadingFontURL}
         <link href="{text:Custom Heading Font URL}" rel="stylesheet">
-        <!-- https://fonts.googleapis.com/css?family=Limelight&subset=latin-ext -->
         {/block:IfCustomHeadingFontURL}
         {block:IfCustomSubheadingFontURL}
         <link href="{text:Custom Subheading Font URL}" rel="stylesheet">
-        <!-- https://fonts.googleapis.com/css?family=Trochut:400,400i,700 -->
         {/block:IfCustomSubheadingFontURL}
         <!-- /Custom Fonts -->
 
@@ -151,20 +146,20 @@
 
             .heading {
                 {block:IfCustomHeadingFontName}
-                font-family: '{text:Custom Heading Font Name}', {TitleFont};
+                font-family: '{text:Custom Heading Font Name}', 'Limelight', {TitleFont};
                 {/block:IfCustomHeadingFontName}
                 {block:IfNotCustomHeadingFontName}
-                font-family: {TitleFont};
+                font-family: 'Limelight', {TitleFont};
                 {/block:IfNotCustomHeadingFontName}
                 font-weight: {select:Heading Font Weight};
                 color: {color:Headings};
             }
             .subheading, .post h2 {
                 {block:IfCustomSubheadingFontName}
-                font-family: '{text:Custom Subheading Font Name}', {TitleFont};
+                font-family: '{text:Custom Subheading Font Name}', 'Trochut', {TitleFont};
                 {/block:IfCustomSubheadingFontName}
                 {block:IfNotCustomSubheadingFontName}
-                font-family: {TitleFont};
+                font-family: 'Trochut', {TitleFont};
                 {/block:IfNotCustomSubheadingFontName}
                 font-weight: {select:Subheading Font Weight};
                 color: {color:Subheadings};
