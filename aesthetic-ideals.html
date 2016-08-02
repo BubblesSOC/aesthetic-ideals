@@ -1,0 +1,838 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>
+            {block:SearchPage}Search results for &ldquo;{SearchQuery}&rdquo; |{/block:SearchPage}
+            {block:TagPage}Posts tagged as &ldquo;{PlaintextTag}&rdquo; |{/block:TagPage}
+            {block:DayPage}{Month} {DayOfMonth}, {Year} |{/block:DayPage}
+            {block:PermalinkPage}{block:PostSummary}{PostSummary} |{/block:PostSummary}{/block:PermalinkPage}
+            {Title}
+        </title>
+        {block:Description}
+        <meta name="description" content="{MetaDescription}">
+        {/block:Description}
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {block:Hidden}
+        <!-- Theme Options -->
+        <meta name="image:Logo" content="">
+
+        <meta name="color:Background" content="{BackgroundColor}"> <!-- #f5f6e6 -->
+        <meta name="color:Post Background" content="#fff"> <!-- #fff -->
+        <meta name="color:Text" content="#333"> <!-- #333 -->
+        <meta name="color:Link" content="{AccentColor}"> <!-- #999 -->
+        <meta name="color:Link Hover" content="{AccentColor}"> <!-- #333 -->
+        <meta name="color:Highlight" content="#eee"> <!-- #e2e6c3 -->
+        <meta name="color:Highlight Text" content="#333"> <!-- #333 -->
+        <meta name="color:Borders" content="#eee"> <!-- #e1e2da -->
+        <meta name="color:Headings" content="#333"> <!-- #333 -->
+        <meta name="color:Subheadings" content="#333"> <!-- #333 -->
+        <meta name="color:Blog Title" content="{TitleColor}"> <!-- #fb834f -->
+        <meta name="color:Blog Title Shadow" content="#eee"> <!-- #53170d -->
+        <meta name="color:Blog Title Hover" content="{TitleColor}"> <!-- #e55a3d -->
+        <meta name="color:Navigation" content="{AccentColor}"> <!-- #c54132 -->
+        <meta name="color:Navigation Hover" content="{AccentColor}"> <!-- #e55a3d -->
+        <meta name="color:Sidebar Text" content="#333"> <!-- #333 -->
+        <meta name="color:Sidebar Link" content="{AccentColor}"> <!-- #c54132 -->
+        <meta name="color:Sidebar Link Hover" content="{AccentColor}"> <!-- #e55a3d -->
+        <meta name="color:Footer Text" content="#333"> <!-- #333 -->
+        <meta name="color:Footer Link" content="{AccentColor}"> <!-- #698845 -->
+        <meta name="color:Footer Link Hover" content="{AccentColor}"> <!-- #3d785c -->
+        <meta name="color:Social Icons" content="{AccentColor}"> <!-- #698845 -->
+        <meta name="color:Social Icons Hover" content="{AccentColor}"> <!-- #3d785c -->
+
+        <meta name="font:Heading Font" content="{TitleFont}">
+        <meta name="font:Subheading Font" content="{TitleFont}">
+
+        <meta name="select:Heading Font Weight" content="bold" title="Bold">
+        <meta name="select:Heading Font Weight" content="normal" title="Normal"> <!-- * -->
+
+        <meta name="select:Subheading Font Weight" content="bold" title="Bold">
+        <meta name="select:Subheading Font Weight" content="normal" title="Normal"> <!-- * -->
+
+        <meta name="select:Logo Shape" content="circle" title="Circle"> <!-- * -->
+        <meta name="select:Logo Shape" content="square" title="Square">
+
+        <meta name="select:Navigation Style" content="horizontal" title="Default">
+        <meta name="select:Navigation Style" content="dropdown" title="Slide Down from Top">
+
+        <meta name="if:Logo Hover Effect" content="1">
+        <meta name="if:Show Blog Title" content="1">
+        <meta name="if:Blog Title Shadow" content="1">
+        <meta name="if:Show Description" content="1">
+        <meta name="if:Show Search Form" content="1">
+        <meta name="if:Show Jump Pagination" content="1">
+
+        <meta name="text:Custom Heading Font URL" content="">
+        <meta name="text:Custom Heading Font Name" content=""> <!-- Limelight -->
+
+        <meta name="text:Custom Subheading Font URL" content="">
+        <meta name="text:Custom Subheading Font Name" content=""> <!-- Trochut -->
+
+        <meta name="text:Ask Link Label" content="">
+        <meta name="text:Submit Link Label" content="">
+        <meta name="text:Alternate Description" content="">
+
+        <meta name="text:Google Analytics ID" content="">
+        <meta name="text:8tracks Username" content="">
+        <meta name="text:ao3 Username" content="">
+        <meta name="text:Behance URL" content="">
+        <meta name="text:deviantART Username" content="">
+        <meta name="text:Dribbble Username" content="">
+        <meta name="text:Facebook Username" content="">
+        <meta name="text:Github Username" content="">
+        <meta name="text:Goodreads URL" content="">
+        <meta name="text:Instagram Username" content="">
+        <meta name="text:Pinterest Username" content="">
+        <meta name="text:Skype URL" content="">
+        <meta name="text:Spotify URL" content="">
+        <meta name="text:Steam Username" content="">
+        <meta name="text:Tumblr Username" content="">
+        <meta name="text:Twitter Username" content="">
+        <meta name="text:Website URL" content="">
+        <meta name="text:WordPress URL" content="">
+        <meta name="text:YouTube URL" content="">
+        <!-- /Theme Options -->
+        {/block:Hidden}
+
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/eLuoakle3/normalize.min.css">
+        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/LDdobafdy/main.css">
+        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/XPSobacwp/rapture-icons.css">
+
+        <!-- Custom Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet">
+        {block:IfCustomHeadingFontURL}
+        <link href="{text:Custom Heading Font URL}" rel="stylesheet">
+        <!-- https://fonts.googleapis.com/css?family=Limelight&subset=latin-ext -->
+        {/block:IfCustomHeadingFontURL}
+        {block:IfCustomSubheadingFontURL}
+        <link href="{text:Custom Subheading Font URL}" rel="stylesheet">
+        <!-- https://fonts.googleapis.com/css?family=Trochut:400,400i,700 -->
+        {/block:IfCustomSubheadingFontURL}
+        <!-- /Custom Fonts -->
+
+        <style>
+            ::-moz-selection {
+                background: {color:Highlight};
+                text-shadow: none;
+            }
+            ::selection {
+                background: {color:Highlight};
+                text-shadow: none;
+            }
+            body {
+                background-color: {color:Background};
+                color: {color:Text};
+            }
+            a {
+                color: {color:Link};
+            }
+            a:hover {
+                color: {color:Link Hover};
+            }
+            hr {
+                border-top-color: {color:Borders};
+            }
+            blockquote {
+                border-left-color: {color:Borders};
+            }
+
+            /* ================
+                Helper Classes
+               ================ */
+
+            .heading {
+                {block:IfCustomHeadingFontName}
+                font-family: '{text:Custom Heading Font Name}', {TitleFont};
+                {/block:IfCustomHeadingFontName}
+                {block:IfNotCustomHeadingFontName}
+                font-family: {TitleFont};
+                {/block:IfNotCustomHeadingFontName}
+                font-weight: {select:Heading Font Weight};
+                color: {color:Headings};
+            }
+            .subheading, .post h2 {
+                {block:IfCustomSubheadingFontName}
+                font-family: '{text:Custom Subheading Font Name}', {TitleFont};
+                {/block:IfCustomSubheadingFontName}
+                {block:IfNotCustomSubheadingFontName}
+                font-family: {TitleFont};
+                {/block:IfNotCustomSubheadingFontName}
+                font-weight: {select:Subheading Font Weight};
+                color: {color:Subheadings};
+            }
+            .pointer {
+                background-color: {color:Highlight};
+                color: {color:Highlight Text} !important;
+            }
+            @media only screen and (max-width: 617px) {
+                #prev-post .pointer.previous,
+                #next-post .pointer.next {
+                    background-color: {color:Post Background};
+                    color: {color:Text} !important;
+                }
+            }
+
+            /* ===============
+                Header Styles
+               =============== */
+
+            #blog-header,
+            .results-title {
+                color: {color:Sidebar Text};
+            }
+            #blog-header a {
+                color: {color:Sidebar Link};
+            }
+            #blog-header a:hover {
+                color: {color:Sidebar Link Hover};
+            }
+
+            {block:IfLogoHoverEffect}
+            #blog-title-link #blog-portrait,
+            #blog-title-link #blog-logo {
+                -webkit-transition: all 0.14s ease-in-out;
+                -moz-transition: all 0.14s ease-in-out;
+                -o-transition: all 0.14s ease-in-out;
+                transition: all 0.14s ease-in-out;
+            }
+            #blog-title-link:hover #blog-portrait,
+            #blog-title-link:hover #blog-logo {
+                -webkit-box-shadow: 0 0 0 5px {color:Blog Title Hover};
+                -moz-box-shadow: 0 0 0 5px {color:Blog Title Hover};
+                -o-box-shadow: 0 0 0 5px {color:Blog Title Hover};
+                box-shadow: 0 0 0 5px {color:Blog Title Hover};
+            }
+            {/block:IfLogoHoverEffect}
+
+            #blog-title-text {
+                color: {color:Blog Title};
+                {block:IfBlogTitleShadow}
+                text-shadow: 1px 0 0 {color:Blog Title Shadow};
+                {/block:IfBlogTitleShadow}
+            }
+            #blog-title-link:hover #blog-title-text {
+                color: {color:Blog Title Hover};
+            }
+
+            .nav-dropdown #blog-nav {
+                background-color: rgba({RGBcolor:Highlight}, 0.75);
+                border-bottom-color: {color:Highlight};
+            }
+
+            #main-menu a {
+                color: {color:Navigation};
+            }
+            #main-menu a:hover {
+                color: {color:Navigation Hover};
+            }
+            #search-field {
+                background-color: {color:Post Background};
+                border-color: {color:Borders};
+            }
+
+            /* =============
+                Post Styles
+               ============= */
+
+            .post {
+                background-color: {color:Post Background};
+                -webkit-box-shadow: 1px 1px 0 {color:Borders};
+                -moz-box-shadow: 1px 1px 0 {color:Borders};
+                -o-box-shadow: 1px 1px 0 {color:Borders};
+                box-shadow: 1px 1px 0 {color:Borders};
+            }
+            .index .post-title a,
+            .index .post-title a:hover {
+                color: {color:Headings};
+            }
+            .index .post-title a:hover {
+                text-decoration: underline;
+            }
+            .link-excerpt, .link-author {
+                color: {color:Text};
+            }
+            .post .artist-name {
+                color: rgba({RGBcolor:Headings}, 0.7);
+            }
+            .chat-line.even,
+            .ask-author, .question {
+                background-color: rgba({RGBcolor:Borders}, 0.5);
+            }
+            .ask-author:after {
+                border-color: transparent rgba({RGBcolor:Borders}, 0.5);
+            }
+            .type-link .post-body,
+            .answer-container,
+            .type-answer .post-body,
+            .note-count {
+                border-top-color: {color:Borders};
+            }
+
+            /* ===============
+                Footer Styles
+               =============== */
+
+            #blog-footer {
+               color: {color:Footer Text};
+            }
+            #blog-footer a:not(#elevator):not(#theme-credit):not(.social-icon) {
+               color: {color:Footer Link};
+            }
+            #blog-footer a:not(#elevator):not(#theme-credit):not(.social-icon):hover {
+               color: {color:Footer Link Hover};
+            }
+
+            .social-icon {
+                color: {color:Social Icons};
+            }
+            .social-icon:hover {
+                color: {color:Social Icons Hover};
+            }
+
+            /* ============
+                Custom CSS
+               ============ */
+
+            {CustomCSS}
+        </style>
+
+        <script src="http://bubblessoc.net/personal/tumblr/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
+    <body
+    {block:IndexPage}class="index{block:SearchPage} search{block:NoSearchResults} no-results{/block:NoSearchResults}{/block:SearchPage}{block:TagPage} tag-page{/block:TagPage}{block:DayPage} day-page{/block:DayPage}"{/block:IndexPage}
+    {block:PermalinkPage}class="permalink"{/block:PermalinkPage}
+    {block:TagPage}data-tag="{PlaintextTag}"{/block:TagPage}>
+    <div id="wrapper" class="nav-{select:Navigation Style}">
+
+        <header id="blog-header" class="clearfix{block:IfLogoImage} has-logo{/block:IfLogoImage}{block:IfNotLogoImage}{block:ShowAvatar} has-avatar{/block:ShowAvatar}{/block:IfNotLogoImage}{block:IfShowSearchForm} has-search{/block:IfShowSearchForm}">
+            <h1 id="blog-title">
+                <a href="/" title="{Title}" id="blog-title-link">
+                    {block:IfLogoImage}
+                    <img src="{image:Logo}" alt="{Title}" class="{select:Logo Shape}" id="blog-logo">
+                    <br>
+                    {/block:IfLogoImage}
+                    {block:IfNotLogoImage}{block:ShowAvatar}
+                    <img src="{PortraitURL-128}" alt="{Title}" class="{AvatarShape}" id="blog-portrait">
+                    <br>
+                    {/block:ShowAvatar}{/block:IfNotLogoImage}
+                    {block:IfShowBlogTitle}
+                    <span id="blog-title-text" class="heading">{Title}</span>
+                    {/block:IfShowBlogTitle}
+                </a>
+            </h1>
+            {block:IfShowDescription}
+            {block:IfAlternateDescription}
+            <div id="blog-description">{text:Alternate Description}</div>
+            {/block:IfAlternateDescription}
+            {block:IfNotAlternateDescription}{block:Description}
+            <div id="blog-description">{Description}</div>
+            {/block:Description}{/block:IfNotAlternateDescription}
+            {/block:IfShowDescription}
+
+            <a href="#" id="nav-control" class="icon-menu pointer circle"></a>
+            <nav id="blog-nav">
+                <ul id="main-menu" class="subheading unlistified clearfix">
+                    {block:HasPages}
+                    {block:Pages}
+                    <li data-page="{PlaintextLabel}"><a href="{URL}" title="{Label}">{Label}</a></li>
+                    {/block:Pages}
+                    {/block:HasPages}
+
+                    <li><a href="/archive" title="{lang:Archive}">{lang:Archive}</a></li>
+
+                    {block:SubmissionsEnabled}
+                    {block:IfSubmitLinkLabel}
+                    <li><a href="/submit" title="{text:Submit Link Label}">{text:Submit Link Label}</a></li>
+                    {/block:IfSubmitLinkLabel}
+                    {block:IfNotSubmitLinkLabel}
+                    <li><a href="/submit" title="{SubmitLabel}">{SubmitLabel}</a></li>
+                    {/block:IfNotSubmitLinkLabel}
+                    {/block:SubmissionsEnabled}
+
+                    {block:AskEnabled}
+                    {block:IfAskLinkLabel}
+                    <li><a href="/ask" title="{text:Ask Link Label}">{text:Ask Link Label}</a></li>
+                    {/block:IfAskLinkLabel}
+                    {block:IfNotAskLinkLabel}
+                    <li><a href="/ask" title="{AskLabel}">{AskLabel}</a></li>
+                    {/block:IfNotAskLinkLabel}
+                    {/block:AskEnabled}
+                </ul>
+
+                {block:IfShowSearchForm}
+                <form action="/search" method="get" id="search-form">
+                    <span class="icon-search"></span>
+                    <input type="search" placeholder="Search" name="q" value="{SearchQuery}" id="search-field">
+                </form>
+                {/block:IfShowSearchForm}
+            </nav>
+        </header> <!-- #blog-header -->
+
+<main id="posts-container">
+    {block:TagPage}
+    <h2 class="results-title subheading">
+        Posts tagged as &ldquo;<em class="the-query">{Tag}</em>&rdquo;
+    </h2>
+    {/block:TagPage}
+    {block:SearchPage}
+    <h2 class="results-title subheading">
+        Search results for &ldquo;<em class="the-query">{SearchQuery}</em>&rdquo;
+    </h2>
+    {/block:SearchPage}
+    {block:DayPage}
+    <h2 class="results-title subheading">
+        {Month} {DayOfMonth}, {Year}
+    </h2>
+    {/block:DayPage}
+
+    <div id="the-posts">
+        {block:Posts inlineMediaWidth="540" inlineNestedMediaWidth="540"}
+        <article id="{PostID}" class="post type-{PostType} {TagsAsClasses}">
+
+            {block:Text}
+            <!-- Text Post -->
+            {block:Title}
+            <h1 class="post-title heading">
+                {block:IndexPage}<a href="{Permalink}" title="{Title}">{/block:IndexPage}
+                {Title}
+                {block:IndexPage}</a>{/block:IndexPage}
+            </h1>
+            {/block:Title}
+            <div class="post-body">
+                {Body}
+            </div>
+            <!-- /Text Post -->
+            {/block:Text}
+
+
+            {block:Photo}
+            <!-- Photo Post -->
+            <figure class="photo-container">
+                {block:IndexPage}
+                <a href="{Permalink}" class="photo-link" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}" data-lowres="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}">
+                    <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" class="post-photo">
+                </a>
+                {/block:IndexPage}
+
+                {block:PermalinkPage}
+                {LinkOpenTag}<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" class="post-photo">{LinkCloseTag}
+                {/block:PermalinkPage}
+
+                {block:Caption}
+                <figcaption class="caption">
+                    {Caption}
+                </figcaption>
+                {/block:Caption}
+            </figure>
+            <!-- /Photo Post -->
+            {/block:Photo}
+
+
+            {block:Panorama}
+            <!-- Panorama Post -->
+            <figure class="photo-container panorama">
+                {LinkOpenTag}<img src="{PhotoURL-Panorama}" alt="{PhotoAlt}" class="post-photo">{LinkCloseTag}
+
+                {block:Caption}
+                <figcaption class="caption">
+                    {Caption}
+                </figcaption>
+                {/block:Caption}
+            </figure>
+            <!-- /Panorama Post -->
+            {/block:Panorama}
+
+
+            {block:Photoset}
+            <!-- Photoset Post -->
+            <figure class="photo-container photoset" data-layout='{JSPhotosetLayout}'>
+                {block:Photos}
+                <a href="{PhotoURL-HighRes}" class="photo-link" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}" data-lowres="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}">
+                    <img src="{PhotoURL-HighRes}" alt="{PlaintextCaption}" class="post-photo">
+                </a>
+                {/block:Photos}
+
+                {block:Caption}
+                <figcaption class="caption">
+                    {Caption}
+                </figcaption>
+                {/block:Caption}
+            </figure>
+            <!-- /Photoset Post -->
+            {/block:Photoset}
+
+
+            {block:Quote}
+            <!-- Quote Post -->
+            <blockquote class="quote-container {Length}">
+                <div class="the-quote subheading">{Quote}</div>
+
+                {block:Source}
+                <footer class="caption">
+                    &mdash;
+                    <cite class="quote-source">
+                        {Source}
+                    </cite>
+                </footer>
+                {/block:Source}
+            </blockquote>
+            <!-- /Quote Post -->
+            {/block:Quote}
+
+
+            {block:Link}
+            <!-- Link Post -->
+            <a href="{URL}" class="link-container{block:Thumbnail} has-thumbnail{/block:Thumbnail}" {Target}>
+                {block:Thumbnail}
+                <img src="{Thumbnail-HighRes}" alt="{PlaintextName}" class="link-thumbnail">
+                {/block:Thumbnail}
+
+                <h1 class="post-title link-name heading iconr-right-bold">{Name}</h1>
+                {block:Excerpt}<div class="link-excerpt">{Excerpt}</div>{/block:Excerpt}
+                {block:Author}<div class="link-author">By <strong>{Author}</strong></div>{/block:Author}
+                {block:Host}<div class="link-host">{Host}</div>{/block:Host}
+            </a>
+            {block:Description}
+            <div class="post-body">
+                {Description}
+            </div>
+            {/block:Description}
+            <!-- /Link Post -->
+            {/block:Link}
+
+
+            {block:Chat}
+            <!-- Chat Post -->
+            {block:Title}
+            <h1 class="post-title chat-title heading">
+                {block:IndexPage}<a href="{Permalink}" title="{Title}">{/block:IndexPage}
+                {Title}
+                {block:IndexPage}</a>{/block:IndexPage}
+            </h1>
+            {/block:Title}
+            <ul class="chat-container">
+                {block:Lines}
+                <li class="chat-line {Alt} clearfix{block:Label} has-label{/block:Label}">
+                    {block:Label}<strong class="line-label">{Label}</strong>{/block:Label}
+                    <span class="line-text">{Line}</span>
+                </li>
+                {/block:Lines}
+            </ul>
+            <!-- /Chat Post -->
+            {/block:Chat}
+
+
+            {block:Audio}
+            <!-- Audio Post -->
+            {block:AudioPlayer}
+            <!-- Default Audio Player -->
+            <header class="audio-info">
+                <div class="the-info">
+                    {block:TrackName}<h1 class="post-title track-name heading">{TrackName}</h1>{/block:TrackName}
+                    {block:Artist}<h2 class="artist-name">{Artist}</h2>{/block:Artist}
+                    {block:Album}<h3 class="album-name">{Album}</h3>{/block:Album}
+                </div>
+                {block:AlbumArt}
+                <img src="{AlbumArtURL}" alt="{PlaintextAlbum}" class="album-cover">
+                {/block:AlbumArt}
+            </header>
+
+            <figure class="audio-container default-audio">
+                <div class="audio-player circle">
+                    {AudioPlayerGrey}
+                </div>
+
+                {block:Caption}
+                <figcaption class="caption">
+                    {Caption}
+                </figcaption>
+                {/block:Caption}
+            </figure>
+            <!-- /Default Audio Player -->
+            {/block:AudioPlayer}
+
+            {block:AudioEmbed}
+            <!-- Embedded Audio Player -->
+            <figure class="audio-container embedded-audio">
+                {AudioEmbed-640}
+
+                {block:Caption}
+                <figcaption class="caption">
+                    {Caption}
+                </figcaption>
+                {/block:Caption}
+            </figure>
+            <!-- /Embedded Audio Player -->
+            {/block:AudioEmbed}
+            <!-- /Audio Post -->
+            {/block:Audio}
+
+
+            {block:Video}
+            <!-- Video Post -->
+            <figure class="video-container">
+                {VideoEmbed-700}
+
+                {block:Caption}
+                <figcaption class="caption">
+                    {Caption}
+                </figcaption>
+                {/block:Caption}
+            </figure>
+            <!-- /Video Post -->
+            {/block:Video}
+
+
+            {block:Answer}
+            <!-- Answer Post -->
+            <div class="ask-container clearfix">
+                <img src="{AskerPortraitURL-48}" alt="{PlaintextAsker}" class="asker-portrait circle">
+                <div class="ask-author"><strong>{Asker}</strong> asked:</div>
+                <div class="question">{Question}</div>
+            </div>
+
+            {block:Answerer}
+            <div class="answer-container clearfix">
+                <img src="{AnswererPortraitURL-48}" alt="{PlaintextAnswerer}" class="answerer-portrait circle">
+                <div class="answer-author"><strong>{Answerer}</strong> answered:</div>
+                <div class="answer">{Answer}</div>
+            </div>
+            {/block:Answerer}
+
+            <div class="post-body">{Replies}</div>
+            <!-- /Answer Post -->
+            {/block:Answer}
+
+
+            {block:Date}
+            <!-- Post Meta -->
+            <footer class="post-footer clearfix{block:Audio}{block:ExternalAudio} has-external-audio{/block:ExternalAudio}{/block:Audio}">
+                <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds}" title="{DayOfWeek}, {Month} {DayOfMonth}, {Year} {12Hour}:{Minutes}{AmPm}" class="post-date icon-clock">
+                    {block:IndexPage}<a href="{Permalink}" title="Permalink: {ShortURL}">{/block:IndexPage}
+                        {TimeAgo}
+                    {block:IndexPage}</a>{/block:IndexPage}
+                </time>
+
+                {block:HasTags}
+                <ul class="tags icon-tag unlistified">
+                    {block:Tags}
+                    <li class="tag">#<a href="{TagURL}">{Tag}</a></li>
+                    {/block:Tags}
+                </ul>
+                {/block:HasTags}
+
+                <ul class="post-icons unlistified">
+                    {block:Audio}{block:ExternalAudio}
+                    <li><a href="{ExternalAudioURL}" class="icon-download" title="{lang:Download}"></a></li>
+                    {/block:ExternalAudio}{/block:Audio}
+                    {block:IndexPage}
+                    <li>{LikeButton color="black" size="13"}</li>
+                    <li>{ReblogButton color="black" size="13"}</li>
+                    {/block:IndexPage}
+                </ul>
+
+                <ul class="post-sources unlistified">
+                    {block:RebloggedFrom}
+                    <li class="via icon-loop">
+                        Reblogged from
+                        <a href="{ReblogParentURL}" title="Via: {PlaintextReblogParentTitle}">{ReblogParentName}</a>,
+                    </li>
+                    <li class="source">
+                        Published by
+                        <a href="{ReblogRootURL}" title="Source: {PlaintextReblogRootTitle}">{ReblogRootName}</a>
+                    </li>
+                    {/block:RebloggedFrom}
+                    {block:NotReblog}{block:ContentSource}
+                    <li class="source icon-loop">
+                        Published by
+                        <a href="{SourceURL}" title="Source: {PlaintextSourceTitle}">{SourceTitle}</a>
+                    </li>
+                    {/block:ContentSource}{/block:NotReblog}
+                </ul>
+
+                {block:PermalinkPagination}
+                <ul id="permalink-pagination" class="pagination unlistified">
+                    {block:PreviousPost}
+                    <li id="prev-post" class="prev-container">
+                        <a href="{PreviousPost}" title="Previous Post" class="previous icon-point-left pointer circle"></a>
+                    </li>
+                    {/block:PreviousPost}
+                    {block:NextPost}
+                    <li id="next-post" class="next-container">
+                        <a href="{NextPost}" title="Next Post" class="next icon-point-right pointer circle"></a>
+                    </li>
+                    {/block:NextPost}
+                </ul>
+                {/block:PermalinkPagination}
+
+                {block:PostNotes}
+                {block:NoteCount}<h3 class="note-count subheading">{NoteCountWithLabel}</h3>{/block:NoteCount}
+                {PostNotes-16}
+                {/block:PostNotes}
+            </footer>
+            <!-- /Post Meta -->
+            {/block:Date}
+
+        </article> <!-- .post -->
+        {/block:Posts}
+
+    </div> <!-- #the-posts -->
+</main> <!-- #posts-container -->
+
+        <footer id="blog-footer">
+            {block:Pagination}
+            <ul id="blog-pagination" class="pagination unlistified clearfix{block:IfShowJumpPagination} show-jump-pages{/block:IfShowJumpPagination}{block:IfNotShowJumpPagination} hide-jump-pages{/block:IfNotShowJumpPagination}">
+                {block:PreviousPage}
+                <li id="prev-page" class="prev-container">
+                    <a href="{PreviousPage}" title="Previous Page" class="previous icon-angle-left">
+                        {block:IfNotShowJumpPagination}Prev{/block:IfNotShowJumpPagination}
+                    </a>
+                </li>
+                {/block:PreviousPage}
+
+                {block:IfShowJumpPagination}
+                {block:JumpPagination length="5"}
+                {block:CurrentPage}
+                <li class="current-page">{PageNumber}</li>
+                {/block:CurrentPage}
+                {block:JumpPage}
+                <li class="jump-page"><a href="{URL}">{PageNumber}</a></li>
+                {/block:JumpPage}
+                {/block:JumpPagination}
+                {/block:IfShowJumpPagination}
+
+                {block:NextPage}
+                <li id="next-page" class="next-container">
+                    <a href="{NextPage}" title="Next Page" class="next iconr-angle-right">
+                        {block:IfNotShowJumpPagination}Next{/block:IfNotShowJumpPagination}
+                    </a>
+                </li>
+                {/block:NextPage}
+            </ul>
+            {/block:Pagination}
+
+            {block:DayPagination}
+            <ul id="day-pagination" class="pagination unlistified clearfix">
+                {block:PreviousDayPage}
+                <li id="prev-day" class="prev-container">
+                    <a href="{PreviousDayPage}" title="Previous Day" class="previous icon-angle-left">
+                        {ShortMonth} {DayOfMonth}
+                    </a>
+                </li>
+                {/block:PreviousDayPage}
+                {block:NextDayPage}
+                <li id="next-day" class="next-container">
+                    <a href="{NextDayPage}" title="Next Day" class="next iconr-angle-right">
+                        {ShortMonth} {DayOfMonth}
+                    </a>
+                </li>
+                {/block:NextDayPage}
+            </ul>
+            {/block:DayPagination}
+
+            <ul id="social-icons" class="unlistified">
+                {block:If8tracksUsername}
+                <li><a href="http://8tracks.com/{text:8tracks Username}" title="8tracks" class="social-icon icon-8tracks" target="_blank"></a></li>
+                {/block:If8tracksUsername}
+
+                {block:Ifao3Username}
+                <li><a href="http://archiveofourown.org/users/{text:ao3 Username}" title="Archive of Our Own" class="social-icon icon-ao3" target="_blank"></a></li>
+                {/block:Ifao3Username}
+
+                {block:IfBehanceURL}
+                <li><a href="{text:Behance URL}" title="Behance" class="social-icon icon-behance" target="_blank"></a></li>
+                {/block:IfBehanceURL}
+
+                {block:IfDeviantartUsername}
+                <li><a href="http://{text:deviantART Username}.deviantart.com/" title="deviantART" class="social-icon icon-deviantart" target="_blank"></a></li>
+                {/block:IfDeviantartUsername}
+
+                {block:IfDribbbleUsername}
+                <li><a href="https://dribbble.com/{text:Dribbble Username}" title="Dribbble" class="social-icon icon-dribbble" target="_blank"></a></li>
+                {/block:IfDribbbleUsername}
+
+                {block:IfFacebookUsername}
+                <li><a href="https://facebook.com/{text:Facebook Username}" title="Facebook" class="social-icon icon-facebook" target="_blank"></a></li>
+                {/block:IfFacebookUsername}
+
+                {block:IfGithubUsername}
+                <li><a href="http://github.com/{text:Github Username}" title="Github" class="social-icon icon-github" target="_blank"></a></li>
+                {/block:IfGithubUsername}
+
+                {block:IfGoodreadsURL}
+                <li><a href="{text:Goodreads URL}" title="Goodreads" class="social-icon icon-goodreads" target="_blank"></a></li>
+                {/block:IfGoodreadsURL}
+
+                {block:IfInstagramUsername}
+                <li><a href="https://instagram.com/{text:Instagram Username}" title="Instagram" class="social-icon icon-instagram" target="_blank"></a></li>
+                {/block:IfInstagramUsername}
+
+                {block:IfPinterestUsername}
+                <li><a href="https://pinterest.com/{text:Pinterest Username}" title="Pinterest" class="social-icon icon-pinterest" target="_blank"></a></li>
+                {/block:IfPinterestUsername}
+
+                {block:IfSkypeURL}
+                <li><a href="{text:Skype URL}" title="Skype" class="social-icon icon-skype" target="_blank"></a></li>
+                {/block:IfSkypeURL}
+
+                {block:IfSpotifyURL}
+                <li><a href="{text:Spotify URL}" title="Spotify" class="social-icon icon-spotify" target="_blank"></a></li>
+                {/block:IfSpotifyURL}
+
+                {block:IfSteamUsername}
+                <li><a href="http://steamcommunity.com/id/{text:Steam Username}" title="Steam" class="social-icon icon-steam" target="_blank"></a></li>
+                {/block:IfSteamUsername}
+
+                {block:IfTumblrUsername}
+                <li><a href="http://{text:Tumblr Username}.tumblr.com" title="Tumblr" class="social-icon icon-tumblr" target="_blank"></a></li>
+                {/block:IfTumblrUsername}
+
+                {block:IfTwitterUsername}
+                <li><a href="http://twitter.com/{text:Twitter Username}" title="Twitter" class="social-icon icon-twitter" target="_blank"></a></li>
+                {/block:IfTwitterUsername}
+
+                {block:IfWebsiteURL}
+                <li><a href="{text:Website URL}" title="Website" class="social-icon icon-globe" target="_blank"></a></li>
+                {/block:IfWebsiteURL}
+
+                {block:IfWordPressURL}
+                <li><a href="{text:WordPress URL}" title="WordPress" class="social-icon icon-wordpress" target="_blank"></a></li>
+                {/block:IfWordPressURL}
+
+                {block:IfYouTubeURL}
+                <li><a href="{text:YouTube URL}" title="YouTube" class="social-icon icon-youtube" target="_blank"></a></li>
+                {/block:IfYouTubeURL}
+            </ul>
+
+            <a href="#" title="Back to Top" id="elevator" class="pointer icon-point-up circle"></a>
+            <a href="http://bubbless0c.tumblr.com" target="_blank" title="Theme by Bubs" id="theme-credit" class="pointer icon-heart-outline circle"></a>
+        </footer>
+    </div> <!-- #wrapper -->
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://static.tumblr.com/f8gk9za/Zcioakoiw/imagesloaded.pkgd.min.js"></script>
+    <script src="http://static.tumblr.com/f8gk9za/dCooako9r/masonry.pkgd.min.js"></script>
+    <script src="http://static.tumblr.com/f8gk9za/7Wiob18qq/main.js"></script>
+
+    {block:IfGoogleAnalyticsID}
+    <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','{text:Google Analytics ID}','auto');ga('send','pageview');
+    </script>
+    {/block:IfGoogleAnalyticsID}
+
+    </body>
+</html>
