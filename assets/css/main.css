@@ -932,27 +932,27 @@ pre {
     Pagination
    ============ */
 
-.hide-jump-pages .prev-container,
-.hide-jump-pages .next-container,
+.hide-page-numbers .prev-container,
+.hide-page-numbers .next-container,
 #day-pagination .prev-container,
 #day-pagination .next-container {
     width: 50%;
     float: left;
 }
-.hide-jump-pages .next-container,
+.hide-page-numbers .next-container,
 #day-pagination .next-container {
     float: right;
     text-align: right;
 }
-.show-jump-pages {
+.show-page-numbers {
     text-align: center;
 }
-.show-jump-pages #prev-page {
+.show-page-numbers #prev-page {
     width: 3%;
     float: left;
     text-align: left;
 }
-.show-jump-pages #next-page {
+.show-page-numbers #next-page {
     width: 3%;
     float: right;
     text-align: right;
