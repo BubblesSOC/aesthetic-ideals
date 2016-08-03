@@ -1033,17 +1033,13 @@ pre {
     }
 
     .has-logo #blog-title-text,
-    .has-avatar #blog-title-text,
     .has-logo #blog-description,
-    .has-avatar #blog-description,
-    .has-logo #main-menu,
-    .has-avatar #main-menu {
+    .has-logo #main-menu {
         width: 392px;
         float: right;
     }
 
-    .has-logo #blog-title-text,
-    .has-avatar #blog-title-text {
+    .has-logo #blog-title-text {
         margin-bottom: 1.063rem; /* 17px (~2em) */
     }
 
@@ -1104,11 +1100,8 @@ pre {
     }
 
     .has-logo #blog-title-text,
-    .has-avatar #blog-title-text,
     .has-logo #blog-description,
-    .has-avatar #blog-description,
-    .has-logo #main-menu,
-    .has-avatar #main-menu {
+    .has-logo #main-menu {
         width: 352px;
     }
 

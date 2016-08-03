@@ -64,14 +64,14 @@
         <meta name="select:Logo Shape" content="circle" title="Circle"> <!-- * -->
         <meta name="select:Logo Shape" content="square" title="Square">
 
-        <meta name="select:Navigation Style" content="horizontal" title="Default"> <!-- * -->
-        <meta name="select:Navigation Style" content="dropdown" title="Slide Down">
+        <meta name="select:Navigation Style" content="nav-horizontal" title="Default"> <!-- * -->
+        <meta name="select:Navigation Style" content="hav-dropdown" title="Slide Down">
 
         <!-- todo -->
         <meta name="select:Pagination Style" content="default-pagination" title="Default"> <!-- * -->
         <meta name="select:Pagination Style" content="infinite-scroll" title="Infinite Scroll">
 
-        <meta name="if:Show Logo/Avatar" content="1"> <!-- todo -->
+        <meta name="if:Show Logo or Avatar" content="1">
         <meta name="if:Logo Hover Effect" content="1">
         <meta name="if:Show Blog Title" content="1">
         <meta name="if:Blog Title Shadow" content="1">
@@ -117,7 +117,7 @@
         <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
         <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/eLuoakle3/normalize.min.css">
-        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/DeAobc7ki/main.css">
+        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/nwgobc8jn/main.css">
         <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/0Flobato0/rapture-icons.css">
 
         <!-- Custom Fonts -->
@@ -324,19 +324,21 @@
     {block:IndexPage}class="index{block:SearchPage} search{block:NoSearchResults} no-results{/block:NoSearchResults}{/block:SearchPage}{block:TagPage} tag-page{/block:TagPage}{block:DayPage} day-page{/block:DayPage}"{/block:IndexPage}
     {block:PermalinkPage}class="permalink"{/block:PermalinkPage}
     {block:TagPage}data-tag="{PlaintextTag}"{/block:TagPage}>
-    <div id="wrapper" class="nav-{select:Navigation Style}">
+    <div id="wrapper" class="{select:Navigation Style}">
 
-        <header id="blog-header" class="clearfix{block:IfLogoImage} has-logo{/block:IfLogoImage}{block:IfNotLogoImage}{block:ShowAvatar} has-avatar{/block:ShowAvatar}{/block:IfNotLogoImage}{block:IfShowSearchForm} has-search{/block:IfShowSearchForm}">
+        <header id="blog-header" class="clearfix{block:IfShowLogoOrAvatar} has-logo{/block:IfShowLogoOrAvatar}{block:IfShowSearchForm} has-search{/block:IfShowSearchForm}">
             <h1 id="blog-title">
                 <a href="/" title="{Title}" id="blog-title-link">
+                    {block:IfShowLogoOrAvatar}
                     {block:IfLogoImage}
                     <img src="{image:Logo}" alt="{Title}" class="{select:Logo Shape}" id="blog-logo">
                     <br>
                     {/block:IfLogoImage}
-                    {block:IfNotLogoImage}{block:ShowAvatar}
+                    {block:IfNotLogoImage}
                     <img src="{PortraitURL-128}" alt="{Title}" class="{AvatarShape}" id="blog-portrait">
                     <br>
-                    {/block:ShowAvatar}{/block:IfNotLogoImage}
+                    {/block:IfNotLogoImage}
+                    {/block:IfShowLogoOrAvatar}
                     {block:IfShowBlogTitle}
                     <span id="blog-title-text" class="heading">{Title}</span>
                     {/block:IfShowBlogTitle}
