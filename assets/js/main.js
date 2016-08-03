@@ -33,6 +33,25 @@ $(function() {
     // end vertically center audio info
 
 
+    // begin dropdown navigation
+    $('.nav-dropdown #nav-control').click(function() {
+        var $ctrl = $(this).removeClass('icon-menu icon-close'),
+            $nav  = $('#blog-nav'),
+            openClass = 'nav-opened';
+
+        if ($nav.hasClass(openClass)) {
+            // nav is open -> close nav
+            $ctrl.addClass('icon-menu').attr('title', 'Open Menu');
+            $nav.removeClass(openClass);
+        } else {
+            // nav is closed -> open nav
+            $ctrl.addClass('icon-close').attr('title', 'Close Menu');
+            $nav.addClass(openClass);
+        }
+    });
+    // end dropdown navigation
+
+
     // begin photo and photoset functionality
     $('.photo-container:not(.panorama)').each(function() {
         var $photoset = $(this),

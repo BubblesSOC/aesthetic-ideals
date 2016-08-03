@@ -201,7 +201,7 @@ pre {
 }
 .nav-dropdown #nav-control {
    position: fixed;
-   top: 0.625rem; /* 10px */
+   top: 0.6875rem;
    left: 0.6875rem; /* (50 - 29)/2 = 11px */
    display: inline-block;
    z-index: 4;
@@ -209,6 +209,7 @@ pre {
 .nav-dropdown #nav-control.icon-close {
    background-color: transparent;
    opacity: 0.75;
+   top: 0.625rem; /* 10px */
 }
 .nav-dropdown #nav-control:before {
     position: relative;
@@ -223,6 +224,7 @@ pre {
     height: 3.125rem; /* 50px */
     overflow: hidden;
     border-bottom: 1px solid transparent;
+    padding: 1em 1em 1em 4.125rem; /* 11px + 29px + 2em = 66px */;
 
     -ms-transform: translateY(-3.125rem);
     -webkit-transform: translateY(-3.125rem);
@@ -230,10 +232,10 @@ pre {
     -o-transform: translateY(-3.125rem);
     transform: translateY(-3.125rem);
 
-    -webkit-transition: transform 0.5s ease-in-out 0s, padding 1s ease 0.2s;
-    -moz-transition: transform 0.5s ease-in-out 0s, padding 1s ease 0.2s;
-    -o-transition: transform 0.5s ease-in-out 0s, padding 1s ease 0.2s;
-    transition: transform 0.5s ease-in-out 0s, padding 1s ease 0.2s;
+    -webkit-transition: transform 0.5s ease-in-out;
+    -moz-transition: transform 0.5s ease-in-out;
+    -o-transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out;
 
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -241,7 +243,6 @@ pre {
     box-sizing: border-box;
 }
 .nav-dropdown #blog-nav.nav-opened {
-    padding: 1em 1em 1em 4.125rem; /* 11px + 29px + 2em = 66px */
     -ms-transform: translateY(0);
     -webkit-transform: translateY(0);
     -moz-transform: translateY(0);
