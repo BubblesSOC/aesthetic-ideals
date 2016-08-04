@@ -57,15 +57,16 @@
         <meta name="select:Layout Style" content="single-col" title="Single Column">
 
         <!-- todo -->
+        <meta name="select:Grid Column Width" content="500" title="500px">
+        <meta name="select:Grid Column Width" content="250" title="250px">
+
+        <!-- todo -->
         <meta name="select:Sidebar Content Alignment" content="align-center" title="Center">
         <meta name="select:Sidebar Content Alignment" content="align-left" title="Left">
         <meta name="select:Sidebar Content Alignment" content="align-right" title="Right">
 
         <meta name="select:Logo Shape" content="circle" title="Circle">
         <meta name="select:Logo Shape" content="square" title="Square">
-
-        <meta name="select:Navigation Style" content="nav-horizontal" title="Default">
-        <meta name="select:Navigation Style" content="nav-dropdown" title="Slide Down">
 
         <!-- todo -->
         <meta name="select:Pagination Style" content="default-pagination" title="Default">
@@ -117,8 +118,8 @@
         <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
         <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/eLuoakle3/normalize.min.css">
-        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/gIRobcd0b/main.css">
-        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/0Flobato0/rapture-icons.css">
+        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/fJbobe537/main.css">
+        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/Zgpobe0ro/rapture-icons.css">
 
         <!-- Custom Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i|Limelight|Trochut:400,400i,700&subset=latin-ext">
@@ -236,11 +237,6 @@
                 color: {color:Blog Title Hover};
             }
 
-            .nav-dropdown #blog-nav {
-                background-color: rgba({RGBcolor:Highlight}, 0.75);
-                border-bottom-color: {color:Highlight};
-            }
-
             #main-menu a {
                 color: {color:Navigation};
             }
@@ -324,7 +320,7 @@
     {block:IndexPage}class="index{block:SearchPage} search{block:NoSearchResults} no-results{/block:NoSearchResults}{/block:SearchPage}{block:TagPage} tag-page{/block:TagPage}{block:DayPage} day-page{/block:DayPage}"{/block:IndexPage}
     {block:PermalinkPage}class="permalink"{/block:PermalinkPage}
     {block:TagPage}data-tag="{PlaintextTag}"{/block:TagPage}>
-    <div id="wrapper" class="{select:Navigation Style}">
+    <div id="wrapper" class="{select:Layout Style}">
 
         <header id="blog-header" class="clearfix{block:IfShowLogoOrAvatar} has-logo{/block:IfShowLogoOrAvatar}{block:IfShowSearchForm} has-search{/block:IfShowSearchForm}">
             <h1 id="blog-title">
@@ -353,7 +349,6 @@
             {/block:Description}{/block:IfNotAlternateDescription}
             {/block:IfShowDescription}
 
-            <a href="#" title="Open Menu" id="nav-control" class="icon-menu pointer circle"></a>
             <nav id="blog-nav">
                 <ul id="main-menu" class="subheading unlistified clearfix">
                     {block:HasPages}
@@ -836,7 +831,20 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="http://static.tumblr.com/f8gk9za/Zcioakoiw/imagesloaded.pkgd.min.js"></script>
     <script src="http://static.tumblr.com/f8gk9za/dCooako9r/masonry.pkgd.min.js"></script>
-    <script src="http://static.tumblr.com/f8gk9za/FDRobcd4i/main.js"></script>
+    <script src="http://static.tumblr.com/f8gk9za/pO7obe53s/main.js"></script>
+
+    <script>
+        $(function() {
+            var $theGrid = $('.index .grid #the-posts').imagesLoaded(function() {
+                // init Masonry after all images have loaded
+                $theGrid.masonry({
+                    columnWidth: 500,
+                    itemSelector: '.post',
+                    gutter: 20
+                });
+            });
+        });
+    </script>
 
     {block:IfGoogleAnalyticsID}
     <script>

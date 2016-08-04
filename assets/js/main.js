@@ -1,13 +1,4 @@
 $(function() {
-    var $grid = $('.index #the-posts').imagesLoaded(function() {
-        // init Masonry after all images have loaded
-        $grid.masonry({
-            columnWidth: 500,
-            itemSelector: '.post',
-            gutter: 20
-        });
-    });
-
 
     // vertically center audio info
     $('.audio-info').each(function() {
@@ -31,25 +22,6 @@ $(function() {
         }).fadeTo(400, 1);
     });
     // end vertically center audio info
-
-
-    // begin dropdown navigation
-    $('.nav-dropdown #nav-control').click(function() {
-        var $ctrl = $(this).removeClass('icon-menu icon-close'),
-            $nav  = $('#blog-nav'),
-            openClass = 'nav-opened';
-
-        if ($nav.hasClass(openClass)) {
-            // nav is open -> close nav
-            $ctrl.addClass('icon-menu').attr('title', 'Open Menu');
-            $nav.removeClass(openClass);
-        } else {
-            // nav is closed -> open nav
-            $ctrl.addClass('icon-close').attr('title', 'Close Menu');
-            $nav.addClass(openClass);
-        }
-    });
-    // end dropdown navigation
 
 
     // begin photo and photoset functionality
