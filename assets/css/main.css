@@ -191,10 +191,6 @@ pre {
     margin-bottom: 1.063rem; /* 17px (~.67em) */
 }
 
-#blog-portrait {
-    width: 96px;
-    height: 96px;
-}
 #blog-portrait.square {
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -202,14 +198,13 @@ pre {
     border-radius: 4px;
 }
 
-#blog-logo {
-    max-width: 90%;
-}
-
 #blog-title-text {
     /* h1.heading */
     font-size: 2rem; /* 32px */
     line-height: 100%;
+}
+#blog-title:not(.logo-mw-200):not(.logo-mw-180):not(.logo-mw-150) #blog-title-text {
+    font-size: inherit;
 }
 
 /* ============
@@ -988,6 +983,7 @@ pre {
     }
 
     #blog-logo, #blog-portrait {
+        max-width: none !important;
         width: 128px;
         height: auto;
         float: left;

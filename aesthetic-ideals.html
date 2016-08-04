@@ -67,8 +67,9 @@
         <meta name="select:Logo Shape" content="circle" title="Circle">
         <meta name="select:Logo Shape" content="square" title="Square">
 
-        <!-- todo -->
+        <meta name="select:Logo Max Width" content="200" title="200px">
         <meta name="select:Logo Max Width" content="180" title="180px">
+        <meta name="select:Logo Max Width" content="150" title="150px">
         <meta name="select:Logo Max Width" content="128" title="128px">
         <meta name="select:Logo Max Width" content="96" title="96px">
         <meta name="select:Logo Max Width" content="64" title="64px">
@@ -128,7 +129,7 @@
         <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
         <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/eLuoakle3/normalize.min.css">
-        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/BHDobecuy/main.css">
+        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/1r6obehw1/main.css">
         <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/Zgpobe0ro/rapture-icons.css">
 
         <!-- Custom Fonts -->
@@ -218,6 +219,10 @@
             }
             #blog-header a:hover {
                 color: {color:Sidebar Link Hover};
+            }
+
+            #blog-logo, #blog-portrait {
+                max-width: {select:Logo Max Width}px;
             }
 
             {block:IfLogoHoverEffect}
@@ -333,7 +338,7 @@
     <div id="wrapper" class="{select:Layout Style}">
 
         <header id="blog-header" class="{select:Sidebar Content Alignment} clearfix{block:IfShowLogoOrAvatar} show-logo{block:IfLogoImage} has-logo{/block:IfLogoImage}{block:IfNotLogoImage} has-portrait{/block:IfNotLogoImage}{/block:IfShowLogoOrAvatar}{block:IfShowDescription} show-description{/block:IfShowDescription}{block:IfShowSearchForm} show-search{/block:IfShowSearchForm}">
-            <h1 id="blog-title">
+            <h1 id="blog-title" class="logo-mw-{select:Logo Max Width}">
                 <a href="/" title="{Title}" id="blog-title-link">
                     {block:IfShowLogoOrAvatar}
                     {block:IfLogoImage}
