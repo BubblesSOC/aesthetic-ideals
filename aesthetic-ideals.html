@@ -60,19 +60,29 @@
         <meta name="select:Grid Column Width" content="500" title="500px">
         <meta name="select:Grid Column Width" content="250" title="250px">
 
-        <!-- todo -->
-        <meta name="select:Sidebar Content Alignment" content="align-center" title="Center">
         <meta name="select:Sidebar Content Alignment" content="align-left" title="Left">
+        <meta name="select:Sidebar Content Alignment" content="align-center" title="Center">
         <meta name="select:Sidebar Content Alignment" content="align-right" title="Right">
 
         <meta name="select:Logo Shape" content="circle" title="Circle">
         <meta name="select:Logo Shape" content="square" title="Square">
 
         <!-- todo -->
+        <meta name="select:Logo Max Width" content="180" title="180px">
+        <meta name="select:Logo Max Width" content="128" title="128px">
+        <meta name="select:Logo Max Width" content="96" title="96px">
+        <meta name="select:Logo Max Width" content="64" title="64px">
+        <meta name="select:Logo Max Width" content="48" title="48px">
+        <meta name="select:Logo Max Width" content="40" title="40px">
+        <meta name="select:Logo Max Width" content="30" title="30px">
+        <meta name="select:Logo Max Width" content="24" title="24px">
+
+        <!-- todo -->
         <meta name="select:Pagination Style" content="default-pagination" title="Default">
         <meta name="select:Pagination Style" content="infinite-scroll" title="Infinite Scroll">
 
         <meta name="if:Show Logo or Avatar" content="1">
+        <meta name="if:Center Logo or Avatar" content="1"> <!-- todo -->
         <meta name="if:Logo Hover Effect" content="1">
         <meta name="if:Show Blog Title" content="1">
         <meta name="if:Blog Title Shadow" content="1">
@@ -118,7 +128,7 @@
         <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
         <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/eLuoakle3/normalize.min.css">
-        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/fJbobe537/main.css">
+        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/BHDobecuy/main.css">
         <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/Zgpobe0ro/rapture-icons.css">
 
         <!-- Custom Fonts -->
@@ -322,7 +332,7 @@
     {block:TagPage}data-tag="{PlaintextTag}"{/block:TagPage}>
     <div id="wrapper" class="{select:Layout Style}">
 
-        <header id="blog-header" class="clearfix{block:IfShowLogoOrAvatar} has-logo{/block:IfShowLogoOrAvatar}{block:IfShowSearchForm} has-search{/block:IfShowSearchForm}">
+        <header id="blog-header" class="{select:Sidebar Content Alignment} clearfix{block:IfShowLogoOrAvatar} show-logo{block:IfLogoImage} has-logo{/block:IfLogoImage}{block:IfNotLogoImage} has-portrait{/block:IfNotLogoImage}{/block:IfShowLogoOrAvatar}{block:IfShowDescription} show-description{/block:IfShowDescription}{block:IfShowSearchForm} show-search{/block:IfShowSearchForm}">
             <h1 id="blog-title">
                 <a href="/" title="{Title}" id="blog-title-link">
                     {block:IfShowLogoOrAvatar}

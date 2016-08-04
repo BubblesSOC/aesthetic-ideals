@@ -160,8 +160,19 @@ pre {
    ========================================================================== */
 
 #blog-title {
+    margin-top: 30px;
+}
+.show-logo #blog-title {
+    margin-top: 1.063rem; /* 17px (~.67em) */
+}
+
+.align-center #blog-title,
+.align-center #blog-description {
     text-align: center;
-    margin-top: 1.063rem; /* 17px (~2em) */
+}
+.align-right #blog-title,
+.align-right #blog-description {
+    text-align: right;
 }
 
 #blog-portrait,
@@ -170,11 +181,20 @@ pre {
     margin: 0 auto;
 }
 
+.align-left #blog-portrait,
+.align-left #blog-logo {
+    margin: 0;
+}
+.align-right #blog-portrait,
+.align-right #blog-logo {
+    display: inline-block;
+    margin-bottom: 1.063rem; /* 17px (~.67em) */
+}
+
 #blog-portrait {
     width: 96px;
     height: 96px;
 }
-
 #blog-portrait.square {
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -203,8 +223,19 @@ pre {
     line-height: 1.25rem;
     /* 18px/20px */
 }
+#blog-header:not(.show-description) #main-menu {
+    margin-top: 0;
+}
+.align-center #main-menu {
+    text-align: center;
+}
+.align-right #main-menu {
+    float: right;
+    text-align: right;
+}
 
-#main-menu li {
+.align-left #main-menu li,
+.align-right #main-menu li {
     float: left;
     padding-right: 0.1875rem; /* 3px */
 }
@@ -215,6 +246,10 @@ pre {
     content: '/';
     padding-left: 0.1875rem; /* 3px */
 }
+
+/* =============
+    Search Form
+   ============= */
 
 #search-form {
     position: relative;
@@ -943,7 +978,8 @@ pre {
         margin-top: 40px;
     }
 
-    #blog-title {
+    #blog-title,
+    .show-logo #blog-title {
         margin-top: 0;
     }
 
@@ -955,22 +991,36 @@ pre {
         width: 128px;
         height: auto;
         float: left;
-        margin-bottom: 1.063rem; /* 17px (~2em) */
+        margin-bottom: 1.063rem; /* 17px (~.67em) */
     }
-
-    .has-logo #blog-title-text,
-    .has-logo #blog-description,
-    .has-logo #main-menu {
-        width: 392px; /* 540px - 128px - 20px = 392px */
+    .align-right #blog-logo,
+    .align-right #blog-portrait {
         float: right;
     }
 
-    .has-logo #blog-title-text {
-        margin-bottom: 1.063rem; /* 17px (~2em) */
+    .show-logo #blog-title-text,
+    .show-logo #blog-description,
+    .show-logo #main-menu {
+        width: 392px; /* 540px - 128px - 20px = 392px */
+        float: right;
+    }
+    .align-right.show-logo #blog-title-text,
+    .align-right.show-logo #blog-description,
+    .align-right.show-logo #main-menu {
+        float: left;
     }
 
-    #blog-header:not(.has-search) #main-menu {
+    .show-logo #blog-title-text {
+        font-size: inherit;
+        margin-bottom: 1.063rem; /* 17px (~.67em) */
+    }
+
+    #blog-header:not(.show-search) #main-menu {
         margin-bottom: 0;
+    }
+    .align-right #main-menu li {
+        float: none;
+        padding-right: 0;
     }
 
     #posts-container {
@@ -1028,15 +1078,21 @@ pre {
     #blog-logo, #blog-portrait {
         width: 96px;
     }
-
-    .has-logo #blog-title-text,
-    .has-logo #blog-description,
-    .has-logo #main-menu {
-        width: 384px; /* 500px - 96px - 20px = 384px */
+    .align-center #blog-logo,
+    .align-center #blog-portrait {
+        float: none;
     }
 
-    .has-logo #blog-title-text {
-        font-size: inherit;
+    .show-logo #blog-title-text,
+    .show-logo #blog-description,
+    .show-logo #main-menu {
+        width: 384px; /* 500px - 96px - 20px = 384px */
+    }
+    .align-center.show-logo #blog-title-text,
+    .align-center.show-logo #blog-description,
+    .align-center.show-logo #main-menu {
+        width: auto;
+        float: none;
     }
 
     #posts-container {
