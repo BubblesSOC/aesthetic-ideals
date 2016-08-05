@@ -221,20 +221,18 @@
                 color: {color:Sidebar Link Hover};
             }
 
-            #blog-logo, #blog-portrait {
+            .blog-image {
                 max-width: {select:Logo Max Width}px;
             }
 
             {block:IfLogoHoverEffect}
-            #blog-title-link #blog-portrait,
-            #blog-title-link #blog-logo {
+            #blog-title-link .blog-image {
                 -webkit-transition: all 0.14s ease-in-out;
                 -moz-transition: all 0.14s ease-in-out;
                 -o-transition: all 0.14s ease-in-out;
                 transition: all 0.14s ease-in-out;
             }
-            #blog-title-link:hover #blog-portrait,
-            #blog-title-link:hover #blog-logo {
+            #blog-title-link:hover .blog-image {
                 -webkit-box-shadow: 0 0 0 5px {color:Blog Title Hover};
                 -moz-box-shadow: 0 0 0 5px {color:Blog Title Hover};
                 -o-box-shadow: 0 0 0 5px {color:Blog Title Hover};
@@ -337,16 +335,16 @@
     {block:TagPage}data-tag="{PlaintextTag}"{/block:TagPage}>
     <div id="wrapper" class="{select:Layout Style}">
 
-        <header id="blog-header" class="{select:Sidebar Content Alignment} clearfix{block:IfShowLogoOrAvatar} show-logo{block:IfLogoImage} has-logo{/block:IfLogoImage}{block:IfNotLogoImage} has-portrait{/block:IfNotLogoImage}{/block:IfShowLogoOrAvatar}{block:IfShowDescription} show-description{/block:IfShowDescription}{block:IfShowSearchForm} show-search{/block:IfShowSearchForm}">
-            <h1 id="blog-title" class="logo-mw-{select:Logo Max Width}">
+        <header id="blog-header" class="{select:Sidebar Content Alignment} clearfix{block:IfShowLogoOrAvatar} show-logo{/block:IfShowLogoOrAvatar}{block:IfShowDescription} show-description{/block:IfShowDescription}{block:IfShowSearchForm} show-search{/block:IfShowSearchForm}">
+            <h1 id="blog-title" class="logo-mw-{select:Logo Max Width}{block:IfCenterLogoOrAvatar} logo-centered{/block:IfCenterLogoOrAvatar}">
                 <a href="/" title="{Title}" id="blog-title-link">
                     {block:IfShowLogoOrAvatar}
                     {block:IfLogoImage}
-                    <img src="{image:Logo}" alt="{Title}" class="{select:Logo Shape}" id="blog-logo">
+                    <img src="{image:Logo}" alt="{Title}" class="blog-image {select:Logo Shape}" id="blog-logo">
                     <br>
                     {/block:IfLogoImage}
                     {block:IfNotLogoImage}
-                    <img src="{PortraitURL-128}" alt="{Title}" class="{AvatarShape}" id="blog-portrait">
+                    <img src="{PortraitURL-128}" alt="{Title}" class="blog-image {AvatarShape}" id="blog-portrait">
                     <br>
                     {/block:IfNotLogoImage}
                     {/block:IfShowLogoOrAvatar}
