@@ -179,7 +179,6 @@ pre {
     display: block;
     margin: 0 auto;
 }
-
 .align-left #blog-title:not(.logo-centered) .blog-image {
     margin: 0;
 }
@@ -200,7 +199,7 @@ pre {
     font-size: 2rem; /* 32px */
     line-height: 100%;
 }
-#blog-title:not(.logo-mw-200):not(.logo-mw-180):not(.logo-mw-150) #blog-title-text {
+.show-logo #blog-title:not(.logo-mw-200):not(.logo-mw-180):not(.logo-mw-150) #blog-title-text {
     font-size: inherit;
 }
 

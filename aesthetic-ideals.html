@@ -1,8 +1,8 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -60,9 +60,9 @@
         <meta name="select:Grid Column Width" content="500" title="500px">
         <meta name="select:Grid Column Width" content="250" title="250px">
 
-        <meta name="select:Sidebar Content Alignment" content="align-left" title="Left">
-        <meta name="select:Sidebar Content Alignment" content="align-center" title="Center">
-        <meta name="select:Sidebar Content Alignment" content="align-right" title="Right">
+        <meta name="select:Sidebar Content Align" content="align-left" title="Left">
+        <meta name="select:Sidebar Content Align" content="align-center" title="Center">
+        <meta name="select:Sidebar Content Align" content="align-right" title="Right">
 
         <meta name="select:Logo Shape" content="circle" title="Circle">
         <meta name="select:Logo Shape" content="square" title="Square">
@@ -83,7 +83,7 @@
         <meta name="select:Pagination Style" content="infinite-scroll" title="Infinite Scroll">
 
         <meta name="if:Show Logo or Avatar" content="1">
-        <meta name="if:Center Logo or Avatar" content="1"> <!-- todo -->
+        <meta name="if:Center Logo or Avatar" content="1">
         <meta name="if:Logo Hover Effect" content="1">
         <meta name="if:Show Blog Title" content="1">
         <meta name="if:Blog Title Shadow" content="1">
@@ -99,8 +99,9 @@
         <meta name="text:Custom Subheading Font URL" content="">
         <meta name="text:Custom Subheading Font Name" content="">
 
-        <meta name="text:Ask Link Label" content="">
-        <meta name="text:Submit Link Label" content="">
+        <meta name="text:Ask Link Label" content="Ask">
+        <meta name="text:Submit Link Label" content="Submit">
+        <meta name="text:Archive Link Label" content="">
         <meta name="text:Alternate Description" content="">
 
         <meta name="text:Google Analytics ID" content="">
@@ -330,12 +331,12 @@
         <script src="http://bubblessoc.net/personal/tumblr/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
     <body
-    {block:IndexPage}class="index{block:SearchPage} search{block:NoSearchResults} no-results{/block:NoSearchResults}{/block:SearchPage}{block:TagPage} tag-page{/block:TagPage}{block:DayPage} day-page{/block:DayPage}"{/block:IndexPage}
+    {block:IndexPage}class="index{block:SearchPage} search-page{block:NoSearchResults} no-results{/block:NoSearchResults}{/block:SearchPage}{block:TagPage} tag-page{/block:TagPage}{block:DayPage} day-page{/block:DayPage}"{/block:IndexPage}
     {block:PermalinkPage}class="permalink"{/block:PermalinkPage}
     {block:TagPage}data-tag="{PlaintextTag}"{/block:TagPage}>
     <div id="wrapper" class="{select:Layout Style}">
 
-        <header id="blog-header" class="{select:Sidebar Content Alignment} clearfix{block:IfShowLogoOrAvatar} show-logo{/block:IfShowLogoOrAvatar}{block:IfShowDescription} show-description{/block:IfShowDescription}{block:IfShowSearchForm} show-search{/block:IfShowSearchForm}">
+        <header id="blog-header" class="{select:Sidebar Content Align} clearfix{block:IfShowLogoOrAvatar} show-logo{/block:IfShowLogoOrAvatar}{block:IfShowBlogTitle} show-title{/block:IfShowBlogTitle}{block:IfShowDescription} show-description{/block:IfShowDescription}{block:IfShowSearchForm} show-search{/block:IfShowSearchForm}">
             <h1 id="blog-title" class="logo-mw-{select:Logo Max Width}{block:IfCenterLogoOrAvatar} logo-centered{/block:IfCenterLogoOrAvatar}">
                 <a href="/" title="{Title}" id="blog-title-link">
                     {block:IfShowLogoOrAvatar}
@@ -370,7 +371,12 @@
                     {/block:Pages}
                     {/block:HasPages}
 
+                    {block:IfArchiveLinkLabel}
+                    <li><a href="/archive" title="{text:Archive Link Label}">{text:Archive Link Label}</a></li>
+                    {/block:IfArchiveLinkLabel}
+                    {block:IfNotArchiveLinkLabel}
                     <li><a href="/archive" title="{lang:Archive}">{lang:Archive}</a></li>
+                    {/block:IfNotArchiveLinkLabel}
 
                     {block:SubmissionsEnabled}
                     {block:IfSubmitLinkLabel}
@@ -394,7 +400,7 @@
                 {block:IfShowSearchForm}
                 <form action="/search" method="get" id="search-form">
                     <span class="icon-search"></span>
-                    <input type="search" placeholder="Search" name="q" value="{SearchQuery}" id="search-field">
+                    <input type="search" placeholder="{lang:Search}" name="q" value="{SearchQuery}" id="search-field">
                 </form>
                 {/block:IfShowSearchForm}
             </nav>
@@ -640,7 +646,7 @@
             <!-- Post Meta -->
             <footer class="post-footer clearfix{block:Audio}{block:ExternalAudio} has-external-audio{/block:ExternalAudio}{/block:Audio}">
                 <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds}" title="{DayOfWeek}, {Month} {DayOfMonth}, {Year} {12Hour}:{Minutes}{AmPm}" class="post-date icon-clock">
-                    {block:IndexPage}<a href="{Permalink}" title="Permalink: {ShortURL}">{/block:IndexPage}
+                    {block:IndexPage}<a href="{Permalink}" title="{lang:Permalink}: {ShortURL}">{/block:IndexPage}
                         {TimeAgo}
                     {block:IndexPage}</a>{/block:IndexPage}
                 </time>
@@ -666,18 +672,18 @@
                 <ul class="post-sources unlistified">
                     {block:RebloggedFrom}
                     <li class="via icon-loop">
-                        Reblogged from
-                        <a href="{ReblogParentURL}" title="Via: {PlaintextReblogParentTitle}">{ReblogParentName}</a>,
+                        {lang:Reblogged from}
+                        <a href="{ReblogParentURL}" title="{lang:Via}: {PlaintextReblogParentTitle}">{ReblogParentName}</a>,
                     </li>
                     <li class="source">
                         Published by
-                        <a href="{ReblogRootURL}" title="Source: {PlaintextReblogRootTitle}">{ReblogRootName}</a>
+                        <a href="{ReblogRootURL}" title="{lang:Source}: {PlaintextReblogRootTitle}">{ReblogRootName}</a>
                     </li>
                     {/block:RebloggedFrom}
                     {block:NotReblog}{block:ContentSource}
                     <li class="source icon-loop">
                         Published by
-                        <a href="{SourceURL}" title="Source: {PlaintextSourceTitle}">{SourceTitle}</a>
+                        <a href="{SourceURL}" title="{lang:Source}: {PlaintextSourceTitle}">{SourceTitle}</a>
                     </li>
                     {/block:ContentSource}{/block:NotReblog}
                 </ul>
@@ -686,12 +692,12 @@
                 <ul id="permalink-pagination" class="pagination unlistified">
                     {block:PreviousPost}
                     <li id="prev-post" class="prev-container">
-                        <a href="{PreviousPost}" title="Previous Post" class="previous icon-point-left pointer circle"></a>
+                        <a href="{PreviousPost}" title="{lang:Previous post}" class="previous icon-point-left pointer circle"></a>
                     </li>
                     {/block:PreviousPost}
                     {block:NextPost}
                     <li id="next-post" class="next-container">
-                        <a href="{NextPost}" title="Next Post" class="next icon-point-right pointer circle"></a>
+                        <a href="{NextPost}" title="{lang:Next post}" class="next icon-point-right pointer circle"></a>
                     </li>
                     {/block:NextPost}
                 </ul>
@@ -716,8 +722,8 @@
             <ul id="blog-pagination" class="pagination unlistified clearfix{block:IfShowPageNumbers} show-page-numbers{/block:IfShowPageNumbers}{block:IfNotShowPageNumbers} hide-page-numbers{/block:IfNotShowPageNumbers}">
                 {block:PreviousPage}
                 <li id="prev-page" class="prev-container">
-                    <a href="{PreviousPage}" title="Previous Page" class="previous icon-angle-left">
-                        {block:IfNotShowPageNumbers}Prev{/block:IfNotShowPageNumbers}
+                    <a href="{PreviousPage}" title="{lang:Previous page}" class="previous icon-angle-left">
+                        {block:IfNotShowPageNumbers}{lang:Prev}{/block:IfNotShowPageNumbers}
                     </a>
                 </li>
                 {/block:PreviousPage}
@@ -735,8 +741,8 @@
 
                 {block:NextPage}
                 <li id="next-page" class="next-container">
-                    <a href="{NextPage}" title="Next Page" class="next iconr-angle-right">
-                        {block:IfNotShowPageNumbers}Next{/block:IfNotShowPageNumbers}
+                    <a href="{NextPage}" title="{lang:Next page}" class="next iconr-angle-right">
+                        {block:IfNotShowPageNumbers}{lang:Next}{/block:IfNotShowPageNumbers}
                     </a>
                 </li>
                 {/block:NextPage}
@@ -747,14 +753,14 @@
             <ul id="day-pagination" class="pagination unlistified clearfix">
                 {block:PreviousDayPage}
                 <li id="prev-day" class="prev-container">
-                    <a href="{PreviousDayPage}" title="Previous Day" class="previous icon-angle-left">
+                    <a href="{PreviousDayPage}" title="{lang:Previous day}" class="previous icon-angle-left">
                         {ShortMonth} {DayOfMonth}
                     </a>
                 </li>
                 {/block:PreviousDayPage}
                 {block:NextDayPage}
                 <li id="next-day" class="next-container">
-                    <a href="{NextDayPage}" title="Next Day" class="next iconr-angle-right">
+                    <a href="{NextDayPage}" title="{lang:Next day}" class="next iconr-angle-right">
                         {ShortMonth} {DayOfMonth}
                     </a>
                 </li>
