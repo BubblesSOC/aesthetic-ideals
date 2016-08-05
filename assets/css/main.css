@@ -131,12 +131,23 @@ pre {
     General Layout Styles
    ========================================================================== */
 
+#wrapper.single-col {
+    width: 790px; /* 200px + 50px + 540px */
+    margin: 0 auto;
+    position: relative;
+}
+
 #blog-header,
 #blog-footer {
     width: 200px;
     margin-left: 50px;
     position: fixed;
     z-index: 3;
+}
+
+.single-col #blog-header,
+.single-col #blog-footer {
+    margin-left: 0;
 }
 
 #blog-header {
@@ -149,6 +160,11 @@ pre {
 
 #posts-container {
     margin: 30px 0 30px 300px;
+}
+
+.single-col #posts-container {
+    margin-left: 250px;
+    width: 540px;
 }
 
 .index #posts-container {
@@ -287,6 +303,7 @@ pre {
     position: relative;
 }
 
+.single-col .post,
 .permalink .post {
     width: 540px;
 }
@@ -811,12 +828,31 @@ pre {
     position: fixed;
     top: 50%;
 }
+
 #prev-post {
     left: 261px;
 }
+.single-col #prev-post {
+    left: auto;
+    -ms-transform: translateX(-3.25rem);
+    -webkit-transform: translateX(-3.25rem);
+    -moz-transform: translateX(-3.25rem);
+    -o-transform: translateX(-3.25rem);
+    transform: translateX(-3.25rem);
+}
+
 #next-post {
     left: 850px;
 }
+.single-col #next-post {
+    left: auto;
+    -ms-transform: translateX(33.56rem);
+    -webkit-transform: translateX(33.56rem);
+    -moz-transform: translateX(33.56rem);
+    -o-transform: translateX(33.56rem);
+    transform: translateX(33.56rem);
+}
+
 #prev-post .previous,
 #next-post .next {
     display: block;
@@ -916,26 +952,26 @@ pre {
 @media only screen and (max-width: 1369px) {
     /* todo: footer */
 
-    #wrapper {
+    #wrapper.grid {
         width: 790px; /* 200px + 50px + 540px */
         margin: 0 auto;
         position: relative;
     }
 
-    #blog-header, #blog-footer {
+    .grid #blog-header, .grid #blog-footer {
         margin-left: 0;
     }
 
-    #posts-container {
+    .grid #posts-container {
         margin-left: 250px;
         width: 540px;
     }
 
-    .post {
+    .grid .post {
         width: 540px;
     }
 
-    #prev-post {
+    .grid #prev-post {
         left: auto;
         -ms-transform: translateX(-3.25rem);
         -webkit-transform: translateX(-3.25rem);
@@ -943,7 +979,7 @@ pre {
         -o-transform: translateX(-3.25rem);
         transform: translateX(-3.25rem);
     }
-    #next-post {
+    .grid #next-post {
         left: auto;
         -ms-transform: translateX(33.56rem);
         -webkit-transform: translateX(33.56rem);
@@ -956,7 +992,8 @@ pre {
 @media only screen and (max-width: 889px) {
     /* todo: footer */
 
-    #wrapper {
+    #wrapper.grid,
+    #wrapper.single-col {
         width: 540px;
     }
 
@@ -1014,7 +1051,8 @@ pre {
         padding-right: 0;
     }
 
-    #posts-container {
+    .grid #posts-container,
+    .single-col #posts-container {
         margin-left: 0;
     }
 }
@@ -1026,7 +1064,8 @@ pre {
         margin-top: 0;
     }
 
-    #prev-post, #next-post {
+    .grid #prev-post, .grid #next-post,
+    .single-col #prev-post, .single-col #next-post {
         position: static;
         -ms-transform: translateX(0);
         -webkit-transform: translateX(0);
@@ -1058,7 +1097,8 @@ pre {
 @media only screen and (max-width: 539px) {
     /* todo: footer */
 
-    #wrapper {
+    #wrapper.grid,
+    #wrapper.single-col {
         width: 500px;
     }
 
@@ -1085,12 +1125,12 @@ pre {
         float: none;
     }
 
-    #posts-container {
+    .grid #posts-container,
+    .single-col #posts-container {
         width: 500px;
     }
 
-    .index .post,
-    .permalink .post {
-        width: 500px;
+    .post {
+        width: 500px !important;
     }
 }
