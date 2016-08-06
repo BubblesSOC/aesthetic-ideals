@@ -25,10 +25,10 @@ figure {
 
 a {
     text-decoration: none;
-    -webkit-transition: color 0.14s ease-in-out;
-    -moz-transition: color 0.14s ease-in-out;
-    -o-transition: color 0.14s ease-in-out;
-    transition: color 0.14s ease-in-out;
+    -webkit-transition: color 0.2s ease-in-out;
+    -moz-transition: color 0.2s ease-in-out;
+    -o-transition: color 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out;
 }
 
 hr {
@@ -789,10 +789,10 @@ pre {
 .post-icons .like_button {
     color: #000;
     opacity: 0.2;
-    -webkit-transition: opacity 0.14s ease-in-out;
-    -moz-transition: opacity 0.14s ease-in-out;
-    -o-transition: opacity 0.14s ease-in-out;
-    transition: opacity 0.14s ease-in-out;
+    -webkit-transition: opacity 0.2s ease-in-out;
+    -moz-transition: opacity 0.2s ease-in-out;
+    -o-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
 }
 .post-icons a:hover,
 .post-icons .like_button:hover {
@@ -895,20 +895,39 @@ pre {
     vertical-align: middle;
 }
 
-#elevator {
+/* =========
+    Buttons
+   ========= */
+
+#spinner, #elevator, #theme-credit {
     position: fixed;
-    bottom: 3.25rem; /* 20px + 29px (.pointer) + 3px */
     right: 20px;
 }
+
+#spinner, #elevator {
+    display: none;
+    bottom: 3.25rem; /* 20px + 29px (.pointer) + 3px = 52px */
+}
+
+#spinner {
+    animation: spin 2s linear infinite;
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 #elevator:before {
     position: relative;
     left: 0.125rem; /* 2px */
 }
 
 #theme-credit {
-    position: fixed;
     bottom: 1.25rem; /* 20px */
-    right: 20px;
 }
 #theme-credit:hover:before {
     content: '\e80c';

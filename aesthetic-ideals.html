@@ -55,10 +55,6 @@
         <meta name="select:Layout Style" content="grid" title="Grid">
         <meta name="select:Layout Style" content="single-col" title="Single Column">
 
-        <!-- todo -->
-        <meta name="select:Grid Column Width" content="500" title="500px">
-        <meta name="select:Grid Column Width" content="250" title="250px">
-
         <meta name="select:Sidebar Content Align" content="align-left" title="Left">
         <meta name="select:Sidebar Content Align" content="align-center" title="Center">
         <meta name="select:Sidebar Content Align" content="align-right" title="Right">
@@ -129,8 +125,8 @@
         <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
         <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/eLuoakle3/normalize.min.css">
-        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/jIFobfzc2/main.css">
-        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/Zgpobe0ro/rapture-icons.css">
+        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/MFbobgt2h/main.css">
+        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/2vvobg1fp/rapture-icons.css">
 
         <!-- Custom Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i|Limelight|Trochut:400,400i,700&subset=latin-ext">
@@ -214,6 +210,7 @@
             .results-title {
                 color: {color:Sidebar Text};
             }
+
             #blog-header a {
                 color: {color:Sidebar Link};
             }
@@ -227,10 +224,10 @@
 
             {block:IfLogoHoverEffect}
             #blog-title-link .blog-image {
-                -webkit-transition: all 0.14s ease-in-out;
-                -moz-transition: all 0.14s ease-in-out;
-                -o-transition: all 0.14s ease-in-out;
-                transition: all 0.14s ease-in-out;
+                -webkit-transition: all 0.2s ease-in-out;
+                -moz-transition: all 0.2s ease-in-out;
+                -o-transition: all 0.2s ease-in-out;
+                transition: all 0.2s ease-in-out;
             }
             #blog-title-link:hover .blog-image {
                 -webkit-box-shadow: 0 0 0 5px {color:Blog Title Hover};
@@ -256,6 +253,7 @@
             #main-menu a:hover {
                 color: {color:Navigation Hover};
             }
+
             #search-field {
                 background-color: {color:Post Background};
                 border-color: {color:Borders};
@@ -306,18 +304,18 @@
             #blog-footer {
                color: {color:Footer Text};
             }
-            #blog-footer a:not(#elevator):not(#theme-credit):not(.social-icon) {
+            #blog-footer a {
                color: {color:Footer Link};
             }
-            #blog-footer a:not(#elevator):not(#theme-credit):not(.social-icon):hover {
+            #blog-footer a:hover {
                color: {color:Footer Link Hover};
             }
 
             .social-icon {
-                color: {color:Social Icons};
+                color: {color:Social Icons} !important;
             }
             .social-icon:hover {
-                color: {color:Social Icons Hover};
+                color: {color:Social Icons Hover} !important;
             }
 
             /* ============
@@ -841,6 +839,7 @@
                 {/block:IfYouTubeURL}
             </ul>
 
+            <span title="{lang:Loading}..." id="spinner" class="pointer icon-loading circle"></span>
             <a href="#" title="Back to Top" id="elevator" class="pointer icon-point-up circle"></a>
             <a href="http://bubbless0c.tumblr.com" target="_blank" title="Theme by Bubs" id="theme-credit" class="pointer icon-heart-outline circle"></a>
         </footer>
@@ -849,7 +848,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="http://static.tumblr.com/f8gk9za/Zcioakoiw/imagesloaded.pkgd.min.js"></script>
     <script src="http://static.tumblr.com/f8gk9za/dCooako9r/masonry.pkgd.min.js"></script>
-    <script src="http://static.tumblr.com/f8gk9za/pO7obe53s/main.js"></script>
+    <script src="http://static.tumblr.com/f8gk9za/y9Oobgt36/main.js"></script>
 
     <script>
         $(function() {

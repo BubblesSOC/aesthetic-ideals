@@ -18,8 +18,9 @@ $(function() {
 
         $cell.css({
             'display': 'table-cell',
-            'vertical-align': 'middle'
-        }).fadeTo(400, 1);
+            'vertical-align': 'middle',
+            'opacity': 1
+        });
     });
     // end vertically center audio info
 
@@ -69,17 +70,18 @@ $(function() {
 
 
     // fade-in scroll to top
-    // jquery from wallstocker tumblr theme: https://www.tumblr.com/theme/38586
-    var $elevator = $('#elevator').hide();
-    $(window).load(function() {
-        $elevator.css('opacity', 1);
-    }).scroll(function() {
+    var $elevator = $('#elevator'),
+        $spinner  = $('#spinner');
+
+    $(window).scroll(function() {
+        // todo: make room for spinner
         if ($(this).scrollTop() > 200) {
-            $elevator.fadeIn('slow');
+            $elevator.fadeIn();
         } else {
-            $elevator.fadeOut('slow');
+            $elevator.fadeOut();
         }
     });
+
     $elevator.click(function() {
         $('body,html').animate({
             scrollTop: 0
