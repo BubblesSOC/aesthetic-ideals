@@ -1,4 +1,12 @@
 $(function() {
+    var $theGrid = $('.index .grid #the-posts').imagesLoaded(function() {
+        $theGrid.masonry({
+            columnWidth: 500,
+            itemSelector: '.post',
+            gutter: 20
+        });
+    });
+
 
     // vertically center audio info
     $('.audio-info').each(function() {
@@ -70,15 +78,19 @@ $(function() {
 
 
     // fade-in scroll to top
-    var $elevator = $('#elevator'),
-        $spinner  = $('#spinner');
+    var $elevator   = $('#elevator'),
+        $spinner    = $('#spinner'),
+        bottomInit  = $spinner.css('bottom'),
+        bottomShift = $elevator.css('bottom');
 
     $(window).scroll(function() {
-        // todo: make room for spinner
         if ($(this).scrollTop() > 200) {
+            $spinner.css('bottom', bottomInit);
             $elevator.fadeIn();
         } else {
-            $elevator.fadeOut();
+            $elevator.fadeOut(400, function() {
+                $spinner.css('bottom', bottomShift);
+            });
         }
     });
 

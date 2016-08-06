@@ -73,10 +73,6 @@
         <meta name="select:Logo Max Width" content="30" title="30px">
         <meta name="select:Logo Max Width" content="24" title="24px">
 
-        <!-- todo -->
-        <meta name="select:Pagination Style" content="default-pagination" title="Default">
-        <meta name="select:Pagination Style" content="infinite-scroll" title="Infinite Scroll">
-
         <meta name="if:Show Logo or Avatar" content="1">
         <meta name="if:Center Logo or Avatar" content="1">
         <meta name="if:Logo Hover Effect" content="1">
@@ -85,6 +81,7 @@
         <meta name="if:Show Description" content="1">
         <meta name="if:Show Search Form" content="1">
         <meta name="if:Show Page Numbers" content="1">
+        <meta name="if:Infinite Scroll" content="1">
 
         <meta name="text:Heading Letter Spacing" content="normal">
         <meta name="text:Custom Heading Font URL" content="">
@@ -125,7 +122,7 @@
         <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
         <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/eLuoakle3/normalize.min.css">
-        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/MFbobgt2h/main.css">
+        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/Wenobhw13/main.css">
         <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/2vvobg1fp/rapture-icons.css">
 
         <!-- Custom Fonts -->
@@ -331,7 +328,7 @@
     {block:IndexPage}class="index{block:SearchPage} search-page{block:NoSearchResults} no-results{/block:NoSearchResults}{/block:SearchPage}{block:TagPage} tag-page{/block:TagPage}{block:DayPage} day-page{/block:DayPage}"{/block:IndexPage}
     {block:PermalinkPage}class="permalink"{/block:PermalinkPage}
     {block:TagPage}data-tag="{PlaintextTag}"{/block:TagPage}>
-    <div id="wrapper" class="{select:Layout Style}">
+    <div id="wrapper" class="{select:Layout Style}{block:IfInfiniteScroll} infinite-scroll{/block:IfInfiniteScroll}">
 
         <header id="blog-header" class="{select:Sidebar Content Align} clearfix{block:IfShowLogoOrAvatar} show-logo{/block:IfShowLogoOrAvatar}{block:IfShowBlogTitle} show-title{/block:IfShowBlogTitle}{block:IfShowDescription} show-description{/block:IfShowDescription}{block:IfShowSearchForm} show-search{/block:IfShowSearchForm}">
             <h1 id="blog-title" class="logo-mw-{select:Logo Max Width}{block:IfCenterLogoOrAvatar} logo-centered{/block:IfCenterLogoOrAvatar}">
@@ -689,12 +686,12 @@
                 <ul id="permalink-pagination" class="pagination unlistified">
                     {block:PreviousPost}
                     <li id="prev-post" class="prev-container">
-                        <a href="{PreviousPost}" title="{lang:Previous post}" class="previous icon-point-left pointer circle"></a>
+                        <a href="{PreviousPost}" title="{lang:Previous post}" class="previous icon-point-left pointer"></a>
                     </li>
                     {/block:PreviousPost}
                     {block:NextPost}
                     <li id="next-post" class="next-container">
-                        <a href="{NextPost}" title="{lang:Next post}" class="next icon-point-right pointer circle"></a>
+                        <a href="{NextPost}" title="{lang:Next post}" class="next icon-point-right pointer"></a>
                     </li>
                     {/block:NextPost}
                 </ul>
@@ -716,6 +713,12 @@
 
         <footer id="blog-footer">
             {block:Pagination}
+            {block:IfInfiniteScroll}
+            <div id="loading" data-total-pages="{TotalPages}" data-current-page="{CurrentPage}">
+                <span title="{lang:Loading}..." id="spinner" class="pointer icon-loading"></span>
+            </div>
+            {/block:IfInfiniteScroll}
+
             <ul id="blog-pagination" class="pagination unlistified clearfix{block:IfShowPageNumbers} show-page-numbers{/block:IfShowPageNumbers}{block:IfNotShowPageNumbers} hide-page-numbers{/block:IfNotShowPageNumbers}">
                 {block:PreviousPage}
                 <li id="prev-page" class="prev-container">
@@ -839,29 +842,16 @@
                 {/block:IfYouTubeURL}
             </ul>
 
-            <span title="{lang:Loading}..." id="spinner" class="pointer icon-loading circle"></span>
-            <a href="#" title="Back to Top" id="elevator" class="pointer icon-point-up circle"></a>
-            <a href="http://bubbless0c.tumblr.com" target="_blank" title="Theme by Bubs" id="theme-credit" class="pointer icon-heart-outline circle"></a>
+            <a href="#" title="Back to Top" id="elevator" class="pointer icon-point-up"></a>
+            <a href="http://bubbless0c.tumblr.com" target="_blank" title="Theme by Bubs" id="theme-credit" class="pointer icon-heart-outline"></a>
         </footer>
     </div> <!-- #wrapper -->
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://static.tumblr.com/f8gk9za/yecobgz58/jquery.infinitescroll.min.js"></script>
     <script src="http://static.tumblr.com/f8gk9za/Zcioakoiw/imagesloaded.pkgd.min.js"></script>
     <script src="http://static.tumblr.com/f8gk9za/dCooako9r/masonry.pkgd.min.js"></script>
-    <script src="http://static.tumblr.com/f8gk9za/y9Oobgt36/main.js"></script>
-
-    <script>
-        $(function() {
-            var $theGrid = $('.index .grid #the-posts').imagesLoaded(function() {
-                // init Masonry after all images have loaded
-                $theGrid.masonry({
-                    columnWidth: 500,
-                    itemSelector: '.post',
-                    gutter: 20
-                });
-            });
-        });
-    </script>
+    <script src="http://static.tumblr.com/f8gk9za/Wn0obiccp/main.js"></script>
 
     {block:IfGoogleAnalyticsID}
     <script>

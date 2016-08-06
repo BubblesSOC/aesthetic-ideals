@@ -105,6 +105,7 @@ pre {
 }
 
 .circle,
+.pointer,
 .notes .avatar {
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -419,12 +420,16 @@ pre {
     text-transform: lowercase;
 }
 
-.track-name, .artist-name {
-    margin-left: 150px;
-}
-
 .album-name {
     display: none;
+    margin: 0;
+    font-size: 0.625rem; /* 10px */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.track-name, .artist-name, .album-name {
+    margin-left: 150px;
 }
 
 .album-cover {
@@ -904,23 +909,42 @@ pre {
     right: 20px;
 }
 
-#spinner, #elevator {
+#spinner {
     display: none;
-    bottom: 3.25rem; /* 20px + 29px (.pointer) + 3px = 52px */
+    bottom: 5.25rem; /* 52px + 29px (#elevator) + 3px = 84px */
+
+    -webkit-animation: spin 2s linear infinite;
+    -moz-animation: spin 2s linear infinite;
+    -o-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+
+    -webkit-transition: bottom 0.4s ease-in-out;
+    -moz-transition: bottom 0.4s ease-in-out;
+    -o-transition: bottom 0.4s ease-in-out;
+    transition: bottom 0.4s ease-in-out;
 }
 
-#spinner {
-    animation: spin 2s linear infinite;
-}
 @keyframes spin {
     0% {
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
         transform: rotate(0deg);
     }
     100% {
+        -ms-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
         transform: rotate(360deg);
     }
 }
 
+#elevator {
+    display: none;
+    bottom: 3.25rem; /* 20px + 29px (#theme-credit) + 3px = 52px */
+}
 #elevator:before {
     position: relative;
     left: 0.125rem; /* 2px */
