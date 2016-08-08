@@ -663,6 +663,7 @@ pre {
 .photoset-row:first-child {
     margin-top: 0;
 }
+
 .photoset-row .photo-link {
     display: block;
     vertical-align: top;
@@ -677,6 +678,7 @@ pre {
 .photoset-row .photo-link:first-child {
     padding-left: 0;
 }
+
 .columns-1 .photo-link {
     width: 100%;
 }
@@ -692,6 +694,7 @@ pre {
 .columns-5 .photo-link {
     width: 20%;
 }
+
 .photoset-row:first-child.columns-1 .photo-link {
     -webkit-border-radius: 4px 4px 0 0;
     -moz-border-radius: 4px 4px 0 0;
@@ -900,6 +903,36 @@ pre {
     vertical-align: middle;
 }
 
+/* ============
+    Pagination
+   ============ */
+
+#loading-message,
+#blog-footer .pagination {
+    font-size: 0.625rem; /* 10px */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#blog-footer .prev-container,
+#blog-footer .next-container {
+    width: 50%;
+    float: left;
+    text-align: left;
+}
+#blog-footer .next-container {
+    float: right;
+    text-align: right;
+}
+
+.show-page-numbers {
+    text-align: center;
+}
+.show-page-numbers #prev-page,
+.show-page-numbers #next-page {
+    width: 3%;
+}
+
 /* =========
     Buttons
    ========= */
@@ -910,7 +943,7 @@ pre {
 }
 
 #spinner {
-    display: none;
+    opacity: 0;
     bottom: 5.25rem; /* 52px + 29px (#elevator) + 3px = 84px */
 
     -webkit-animation: spin 2s linear infinite;
@@ -918,10 +951,10 @@ pre {
     -o-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
 
-    -webkit-transition: bottom 0.4s ease-in-out;
-    -moz-transition: bottom 0.4s ease-in-out;
-    -o-transition: bottom 0.4s ease-in-out;
-    transition: bottom 0.4s ease-in-out;
+    -webkit-transition: bottom 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    -moz-transition: bottom 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    -o-transition: bottom 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    transition: bottom 0.4s ease-in-out, opacity 0.4s ease-in-out;
 }
 
 @keyframes spin {
@@ -956,36 +989,6 @@ pre {
 #theme-credit:hover:before {
     content: '\e80c';
     color: #d95e40;
-}
-
-/* ============
-    Pagination
-   ============ */
-
-.hide-page-numbers .prev-container,
-.hide-page-numbers .next-container,
-#day-pagination .prev-container,
-#day-pagination .next-container {
-    width: 50%;
-    float: left;
-}
-.hide-page-numbers .next-container,
-#day-pagination .next-container {
-    float: right;
-    text-align: right;
-}
-.show-page-numbers {
-    text-align: center;
-}
-.show-page-numbers #prev-page {
-    width: 3%;
-    float: left;
-    text-align: left;
-}
-.show-page-numbers #next-page {
-    width: 3%;
-    float: right;
-    text-align: right;
 }
 
 /* ==========================================================================
