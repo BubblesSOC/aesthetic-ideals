@@ -893,16 +893,6 @@ pre {
     Footer Styles
    ========================================================================== */
 
-#social-icons {
-    margin: 1em auto 0;
-}
-
-#social-icons li {
-    width: 1.375rem; /* 22px */
-    text-align: center;
-    vertical-align: middle;
-}
-
 /* ============
     Pagination
    ============ */
