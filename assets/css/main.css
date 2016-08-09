@@ -156,7 +156,7 @@ pre {
 }
 
 #blog-footer {
-    bottom: 1.25rem; /* 20px */
+    bottom: 30px;
 }
 
 #posts-container {
@@ -302,6 +302,11 @@ pre {
     -o-border-radius: 4px;
     border-radius: 4px;
     position: relative;
+}
+
+.index .grid .post {
+    float: left;
+    margin-right: 20px;
 }
 
 .single-col .post,
@@ -893,16 +898,18 @@ pre {
     Footer Styles
    ========================================================================== */
 
-/* ============
-    Pagination
-   ============ */
-
 #loading-message,
 #blog-footer .pagination {
     font-size: 0.625rem; /* 10px */
+    line-height: 100%;
     text-transform: uppercase;
     letter-spacing: 1px;
+    margin: 0;
 }
+
+/* ===================
+    Simple Pagination
+   =================== */
 
 #blog-footer .prev-container,
 #blog-footer .next-container {
@@ -915,12 +922,51 @@ pre {
     text-align: right;
 }
 
-.show-page-numbers {
+/* =================
+    Jump Pagination
+   ================= */
+
+#blog-footer .show-page-numbers {
+    width: 200px;
+    margin: 0 auto;
+}
+
+.show-page-numbers li {
+    float: left;
+    width: 1.813rem; /* 29px */
+    height: 1.813rem;
+    padding: 0.3125rem 0; /* 5px */
+    margin: 0 0.3125rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.show-page-numbers #prev-page {
+    margin-left: 0;
+    width: 2.25rem; /* [(200px - (29px + 5px + 5px) * 3) / 2] - 5px = 36.5 */
+}
+.show-page-numbers #next-page {
+    margin-right: 0;
+    width: auto;
+}
+.show-page-numbers .previous,
+.show-page-numbers .next {
+    line-height: 1.188rem; /* 19px */
+}
+
+.show-page-numbers .current-container,
+.show-page-numbers .jump-container {
     text-align: center;
 }
-.show-page-numbers #prev-page,
-.show-page-numbers #next-page {
-    width: 3%;
+.show-page-numbers .current-container:first-child {
+    margin-left: 2.563rem; /* (200px - (29px + 5px + 5px) * 3) / 2 = 41.5 */
+}
+.show-page-numbers .current-page,
+.show-page-numbers .jump-page {
+    font-size: 0.5rem; /* 8px */
+    line-height: 1.188rem; /* 19px */
 }
 
 /* =========
@@ -986,8 +1032,6 @@ pre {
    ========================================================================== */
 
 @media only screen and (max-width: 1369px) {
-    /* todo: footer */
-
     #wrapper.grid {
         width: 790px; /* 200px + 50px + 540px */
         margin: 0 auto;
@@ -1026,8 +1070,6 @@ pre {
 }
 
 @media only screen and (max-width: 889px) {
-    /* todo: footer */
-
     #wrapper.grid,
     #wrapper.single-col {
         width: 540px;
@@ -1091,6 +1133,10 @@ pre {
     .single-col #posts-container {
         margin-left: 0;
     }
+
+    #blog-footer {
+        margin-bottom: 30px;
+    }
 }
 
 @media only screen and (max-width: 617px) {
@@ -1128,11 +1174,25 @@ pre {
     .note-count {
         clear: both;
     }
+
+    #blog-footer .prev-container,
+    #blog-footer .next-container {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -o-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    #blog-footer .prev-container {
+        padding-right: 0.625rem; /* 10px */
+        text-align: right;
+    }
+    #blog-footer .next-container {
+        padding-left: 0.625rem; /* 10px */
+        text-align: left;
+    }
 }
 
 @media only screen and (max-width: 539px) {
-    /* todo: footer */
-
     #wrapper.grid,
     #wrapper.single-col {
         width: 500px;

@@ -102,8 +102,8 @@
         <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
         <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/eLuoakle3/normalize.min.css">
-        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/5rtoblreo/main.css">
         <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/Ny1oblrez/rapture-icons.css">
+        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/PQWobnb3f/main.css">
 
         <!-- Custom Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i|Limelight|Trochut:400,400i,700&subset=latin-ext">
@@ -286,6 +286,11 @@
             }
             #blog-footer a:hover {
                color: {color:Footer Link Hover};
+            }
+
+            .show-page-numbers .current-container {
+                background-color: {color:Highlight};
+                color: {color:Highlight Text};
             }
 
             /* ============
@@ -702,12 +707,16 @@
                 {/block:PreviousPage}
 
                 {block:IfShowPageNumbers}
-                {block:JumpPagination length="5"}
+                {block:JumpPagination length="3"}
                 {block:CurrentPage}
-                <li class="current-page">{PageNumber}</li>
+                <li class="current-container circle">
+                    <strong class="current-page">{PageNumber}</strong>
+                </li>
                 {/block:CurrentPage}
                 {block:JumpPage}
-                <li class="jump-page"><a href="{URL}">{PageNumber}</a></li>
+                <li class="jump-container">
+                    <a href="{URL}" class="jump-page">{PageNumber}</a>
+                </li>
                 {/block:JumpPage}
                 {/block:JumpPagination}
                 {/block:IfShowPageNumbers}
