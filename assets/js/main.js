@@ -91,141 +91,141 @@
         });
     };
 
-}( jQuery ));
 
+    $(function() {
+        var $indexWrap = $('.index #wrapper'),
+            initGrid   = $indexWrap.hasClass('grid'),
+            $theGrid   = null,
+            initInfScr = $indexWrap.hasClass('infinite-scroll'),
+            $infScr    = null,
+            $loading   = $('#loading'),
+            $spinner   = $('#spinner'),
+            $elevator  = $('#elevator'),
+            spinInit   = $spinner.css('bottom'),
+            spinShift  = $elevator.css('bottom');
 
-$(function() {
-    var $indexWrap = $('.index #wrapper'),
-        initGrid   = $indexWrap.hasClass('grid'),
-        $theGrid   = null,
-        initInfScr = $indexWrap.hasClass('infinite-scroll'),
-        $infScr    = null,
-        $loading   = $('#loading'),
-        $spinner   = $('#spinner'),
-        $elevator  = $('#elevator'),
-        spinInit   = $spinner.css('bottom'),
-        spinShift  = $elevator.css('bottom');
+        $('.post').idealize();
 
-    $('.post').idealize();
-
-    if (initGrid) {
-        $theGrid = $('.index .grid #the-posts').imagesLoaded(function() {
-            $theGrid.masonry({
-                columnWidth: 500,
-                itemSelector: '.post',
-                gutter: 20
-            });
-        });
-    }
-
-
-    // begin infinite scroll setup
-    if (initInfScr) {
-
-        // refs:
-        // http://www.infinite-scroll.com/
-        // https://github.com/infinite-scroll/infinite-scroll/blob/master/jquery.infinitescroll.js
-        // https://gist.github.com/gregrickaby/10383879
-        // https://github.com/fk/masonite/blob/master/js/masonite.js
-
-        var dotdotdot = function() {
-            //
-        };
-
-        $infScr = $('.index .infinite-scroll #the-posts').infinitescroll({
-            loading: {
-                finishedMsg: $loading.data('finished-msg'),
-                msg: $('<p id="loading-message"></p>'),
-                selector: '#loading',
-                start: function(opts) {
-                    var $instance = $(this).data('infinitescroll'),
-                        $loadMsg  = opts.loading.msg.appendTo(opts.loading.selector),
-                        currPage  = opts.state.currPage + 1;
-
-                    if (currPage <= opts.maxPage) {
-                        // todo: dotdotdot()
-                        $loadMsg.text('Loading Page ' + currPage + ' of ' + opts.maxPage + '...');
-                    }
-
-                    $(opts.navSelector).hide();
-                    $spinner.css('opacity', 1);
-                    $loadMsg.fadeIn(opts.loading.speed, function() {
-                        $instance.beginAjax(opts);
-                    });
-                },
-                finished: function(opts) {
-                    // if (!opts.state.isBeyondMaxPage)
-                    //     opts.loading.msg.fadeOut(opts.loading.speed);
-                    return;
-                }
-            },
-            state: {
-                currPage: $loading.data('current-page')
-            },
-            nextSelector: '#next-page a.next',
-            navSelector: '#blog-pagination',
-            // extraScrollPx: 150,
-            itemSelector: '.post',
-            pathParse: function(path, nextPage) {
-                return [ path.substring(0, path.lastIndexOf('/')) + '/', '' ];
-            },
-            // dataType: 'html',
-            // appendCallback: true,
-            // bufferPx: $(window).height() * 2,
-            errorCallback: function() {
-                // todo
-            },
-            // infid: 0, //Instance ID
-            // pixelsFromNavToBottom: undefined,
-            maxPage: $loading.data('total-pages'),
-            // debug: true
-        },
-        function( newElements ) {
-			var $posts  = $( newElements ).css({ opacity: 0 }),
-                postIds = $posts.map(function() {
-                    return this.id;
-                }).get(),
-                opts = $infScr.data('infinitescroll').options;
-
-            $infScr.infinitescroll('pause');
-            $posts.idealize().imagesLoaded(function() {
-                Tumblr.LikeButton.get_status_by_post_ids(postIds);
-
-                if (initGrid) {
-                    $posts.css({ opacity: 1 });
-                    $theGrid.masonry('appended', $posts);
-                } else {
-                    $posts.animate({ opacity: 1 });
-                }
-
-                if (opts && !opts.state.isBeyondMaxPage) {
-                    $spinner.css('opacity', 0);
-                    opts.loading.msg.fadeOut(opts.loading.speed);
-                }
-
-                $infScr.infinitescroll('resume');
-            });
-        });
-    }
-    // end infinite scroll setup
-
-
-    // fade-in scroll to top
-    $(window).scroll(function() {
-        if ($(this).scrollTop() > 200) {
-            $spinner.css('bottom', spinInit);
-            $elevator.fadeIn();
-        } else {
-            $elevator.fadeOut(400, function() {
-                $spinner.css('bottom', spinShift);
+        if (initGrid) {
+            $theGrid = $('.index .grid #the-posts').imagesLoaded(function() {
+                $theGrid.masonry({
+                    columnWidth: 500,
+                    itemSelector: '.post',
+                    gutter: 20
+                });
             });
         }
+
+
+        // begin infinite scroll setup
+        if (initInfScr) {
+
+            // refs:
+            // http://www.infinite-scroll.com/
+            // https://github.com/infinite-scroll/infinite-scroll/blob/master/jquery.infinitescroll.js
+            // https://gist.github.com/gregrickaby/10383879
+            // https://github.com/fk/masonite/blob/master/js/masonite.js
+
+            var dotdotdot = function() {
+                //
+            };
+
+            $infScr = $('.index .infinite-scroll #the-posts').infinitescroll({
+                loading: {
+                    finishedMsg: $loading.data('finished-msg'),
+                    msg: $('<p id="loading-message"></p>'),
+                    selector: '#loading',
+                    start: function(opts) {
+                        var $instance = $(this).data('infinitescroll'),
+                            $loadMsg  = opts.loading.msg.appendTo(opts.loading.selector),
+                            currPage  = opts.state.currPage + 1;
+
+                        if (currPage <= opts.maxPage) {
+                            // todo: dotdotdot()
+                            $loadMsg.text('Loading Page ' + currPage + ' of ' + opts.maxPage + '...');
+                        }
+
+                        $(opts.navSelector).hide();
+                        $spinner.css('opacity', 1);
+                        $loadMsg.fadeIn(opts.loading.speed, function() {
+                            $instance.beginAjax(opts);
+                        });
+                    },
+                    finished: function(opts) {
+                        // if (!opts.state.isBeyondMaxPage)
+                        //     opts.loading.msg.fadeOut(opts.loading.speed);
+                        return;
+                    }
+                },
+                state: {
+                    currPage: $loading.data('current-page')
+                },
+                nextSelector: '#next-page a.next',
+                navSelector: '#blog-pagination',
+                // extraScrollPx: 150,
+                itemSelector: '.post',
+                pathParse: function(path, nextPage) {
+                    return [ path.substring(0, path.lastIndexOf('/')) + '/', '' ];
+                },
+                // dataType: 'html',
+                // appendCallback: true,
+                // bufferPx: $(window).height() * 2,
+                errorCallback: function() {
+                    // todo
+                },
+                // infid: 0, //Instance ID
+                // pixelsFromNavToBottom: undefined,
+                maxPage: $loading.data('total-pages'),
+                // debug: true
+            },
+            function( newElements ) {
+    			var $posts  = $( newElements ).css({ opacity: 0 }),
+                    postIds = $posts.map(function() {
+                        return this.id;
+                    }).get(),
+                    opts = $infScr.data('infinitescroll').options;
+
+                $infScr.infinitescroll('pause');
+                $posts.idealize().imagesLoaded(function() {
+                    Tumblr.LikeButton.get_status_by_post_ids(postIds);
+
+                    if (initGrid) {
+                        $posts.css({ opacity: 1 });
+                        $theGrid.masonry('appended', $posts);
+                    } else {
+                        $posts.animate({ opacity: 1 });
+                    }
+
+                    if (opts && !opts.state.isBeyondMaxPage) {
+                        $spinner.css('opacity', 0);
+                        opts.loading.msg.fadeOut(opts.loading.speed);
+                    }
+
+                    $infScr.infinitescroll('resume');
+                });
+            });
+        }
+        // end infinite scroll setup
+
+
+        // fade-in scroll to top
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $spinner.css('bottom', spinInit);
+                $elevator.fadeIn();
+            } else {
+                $elevator.fadeOut(400, function() {
+                    $spinner.css('bottom', spinShift);
+                });
+            }
+        });
+
+        $elevator.click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 500);
+            return false;
+        });
     });
 
-    $elevator.click(function() {
-        $('body,html').animate({
-            scrollTop: 0
-        }, 500);
-        return false;
-    });
-});
+}( jQuery ));

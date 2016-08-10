@@ -982,15 +982,18 @@ pre {
     opacity: 0;
     bottom: 5.25rem; /* 52px + 29px (#elevator) + 3px = 84px */
 
-    -webkit-animation: spin 2s linear infinite;
-    -moz-animation: spin 2s linear infinite;
-    -o-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
-
     -webkit-transition: bottom 0.4s ease-in-out, opacity 0.4s ease-in-out;
     -moz-transition: bottom 0.4s ease-in-out, opacity 0.4s ease-in-out;
     -o-transition: bottom 0.4s ease-in-out, opacity 0.4s ease-in-out;
     transition: bottom 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+#spinner.spin {
+    opacity: 1;
+
+    -webkit-animation: spin 2s linear infinite;
+    -moz-animation: spin 2s linear infinite;
+    -o-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
 }
 
 @keyframes spin {

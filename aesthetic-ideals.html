@@ -103,7 +103,7 @@
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
         <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/eLuoakle3/normalize.min.css">
         <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/Ny1oblrez/rapture-icons.css">
-        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/PQWobnb3f/main.css">
+        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/aRoobp50b/main.css">
 
         <!-- Custom Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i|Limelight|Trochut:400,400i,700&subset=latin-ext">
@@ -693,7 +693,7 @@
             {block:Pagination}
             {block:IfInfiniteScroll}
             <div id="loading" data-total-pages="{TotalPages}" data-current-page="{CurrentPage}" data-finished-msg="{lang:No more posts}">
-                <span title="{lang:Loading}..." id="spinner" class="pointer icon-loading"></span>
+                <span data-title="{lang:Loading}..." id="spinner" class="pointer icon-loading"></span>
             </div>
             {/block:IfInfiniteScroll}
 
@@ -756,10 +756,12 @@
     </div> <!-- #wrapper -->
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    {block:IfInfiniteScroll}
     <script src="http://static.tumblr.com/f8gk9za/yecobgz58/jquery.infinitescroll.min.js"></script>
+    {/block:IfInfiniteScroll}
     <script src="http://static.tumblr.com/f8gk9za/Zcioakoiw/imagesloaded.pkgd.min.js"></script>
     <script src="http://static.tumblr.com/f8gk9za/dCooako9r/masonry.pkgd.min.js"></script>
-    <script src="http://static.tumblr.com/f8gk9za/0ePoblp75/main.js"></script>
+    <script src="http://static.tumblr.com/f8gk9za/0qfobp516/main.js"></script>
 
     {block:IfGoogleAnalyticsID}
     <script>
