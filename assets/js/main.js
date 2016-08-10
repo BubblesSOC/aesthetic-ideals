@@ -1,4 +1,5 @@
-(function( $ ) {
+(function( $, window ) {
+    'use strict';
 
     // vertically center audio info
     var centerAudioInfo = function( $post ) {
@@ -81,13 +82,19 @@
 
     $.fn.idealize = function() {
         return this.each(function() {
+            var $ele = $(this);
 
-            centerAudioInfo( $(this) );
-            initLightbox( $(this) );
-            initPhotosetGrid( $(this) );
+            if ( $ele.hasClass('idealized') ) return true;
+
+            centerAudioInfo( $ele );
+            initLightbox( $ele );
+            initPhotosetGrid( $ele );
 
             // add icon to tumblr gif attribution
-            $(this).find('figure[data-tumblr-attribution] .tmblr-attribution a').addClass('icon-link-ext');
+            $ele.find('figure[data-tumblr-attribution] .tmblr-attribution a').addClass('icon-link-ext');
+
+            // mark element with class to prevent duplicate work
+            $ele.addClass('idealized');
         });
     };
 
@@ -99,10 +106,7 @@
             initInfScr = $indexWrap.hasClass('infinite-scroll'),
             $infScr    = null,
             $loading   = $('#loading'),
-            $spinner   = $('#spinner'),
-            $elevator  = $('#elevator'),
-            spinInit   = $spinner.css('bottom'),
-            spinShift  = $elevator.css('bottom');
+            $spinner   = $('#spinner');
 
         $('.post').idealize();
 
@@ -209,6 +213,10 @@
 
 
         // fade-in scroll to top
+        var $elevator  = $('#elevator'),
+            spinInit   = $spinner.css('bottom'),
+            spinShift  = $elevator.css('bottom');
+
         $(window).scroll(function() {
             if ($(this).scrollTop() > 200) {
                 $spinner.css('bottom', spinInit);
@@ -228,4 +236,4 @@
         });
     });
 
-}( jQuery ));
+}( jQuery, window ));
