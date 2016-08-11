@@ -991,10 +991,20 @@ pre {
     opacity: 0;
     bottom: 5.25rem; /* 52px + 29px (#elevator) + 3px = 84px */
 
-    -webkit-transition: bottom 0.4s ease-in-out, opacity 0.4s ease-in-out;
-    -moz-transition: bottom 0.4s ease-in-out, opacity 0.4s ease-in-out;
-    -o-transition: bottom 0.4s ease-in-out, opacity 0.4s ease-in-out;
-    transition: bottom 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    -webkit-transition-property: bottom, left, opacity;
+    -moz-transition-property: bottom, left, opacity;
+    -o-transition-property: bottom, left, opacity;
+    transition-property: bottom, left, opacity;
+
+    -webkit-transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+
+    -webkit-transition-timing-function: ease-in-out;
+    -moz-transition-timing-function: ease-in-out;
+    -o-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
 }
 #spinner.spin {
     opacity: 1;
@@ -1187,6 +1197,16 @@ pre {
         clear: both;
     }
 
+    .index #blog-footer {
+        min-height: 1.813rem; /* 29px */
+    }
+
+    #loading-message,
+    #blog-footer .pagination:not(.show-page-numbers) {
+        line-height: 1.813rem; /* 29px */
+        vertical-align: middle;
+    }
+
     #blog-footer .pagination:not(.show-page-numbers) .prev-container,
     #blog-footer .pagination:not(.show-page-numbers) .next-container {
         -webkit-box-sizing: border-box;
@@ -1203,10 +1223,19 @@ pre {
         text-align: left;
     }
 
-    .show-page-numbers #loading-message {
-        min-height: 1.813rem; /* 29px */
-        line-height: 1.813rem; /* 29px */
-        vertical-align: middle;
+    .index #theme-credit, #spinner {
+        position: absolute;
+        right: auto;
+        bottom: 0 !important;
+        left: 0;
+    }
+
+    #spinner.spin {
+        left: 32px;
+    }
+
+    .index #elevator {
+        bottom: 30px;
     }
 }
 

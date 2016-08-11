@@ -243,6 +243,20 @@
             spinInit   = $spinner.css('bottom'),
             spinShift  = $elevator.css('bottom');
 
+        if ( $spinner.css('position') == 'absolute' ) {
+
+            // handle media queries
+            var tcHeight   = $('#theme-credit').outerHeight(),
+                elevHeight = $elevator.outerHeight();
+
+            // see: 'Buttons' section in main.css
+            spinInit = (20 + tcHeight + 3 + elevHeight + 3) + 'px';
+            // 52px + 29px (#elevator) + 3px = 84px
+
+            spinShift = (20 + tcHeight + 3) + 'px';
+            // 20px + 29px (#theme-credit) + 3px = 52px
+        }
+
         $(window).scroll(function() {
             if ($(this).scrollTop() > 200) {
                 $spinner.css('bottom', spinInit);
