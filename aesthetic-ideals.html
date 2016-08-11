@@ -103,7 +103,7 @@
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
         <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/eLuoakle3/normalize.min.css">
         <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/Ny1oblrez/rapture-icons.css">
-        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/Fs3obqzz8/main.css">
+        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/HAXobr8hc/main.css">
 
         <!-- Custom Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i|Limelight|Trochut:400,400i,700&subset=latin-ext">
@@ -692,7 +692,7 @@
         <footer id="blog-footer">
             {block:Pagination}
             {block:IfInfiniteScroll}
-            <div id="loading" data-total-pages="{TotalPages}" data-current-page="{CurrentPage}" data-loading="{lang:Loading}" data-finished="{lang:No more posts}">
+            <div id="loading" data-total-pages="{TotalPages}" data-current-page="{CurrentPage}" data-loading="{lang:Loading}" data-finished="{lang:No more posts}"{block:IfShowPageNumbers} class="show-page-numbers"{/block:IfShowPageNumbers}>
                 <span id="spinner" class="pointer icon-loading"></span>
             </div>
             {/block:IfInfiniteScroll}
@@ -709,12 +709,12 @@
                 {block:IfShowPageNumbers}
                 {block:JumpPagination length="3"}
                 {block:CurrentPage}
-                <li class="current-container circle">
+                <li class="page-number current-container circle">
                     <strong class="current-page">{PageNumber}</strong>
                 </li>
                 {/block:CurrentPage}
                 {block:JumpPage}
-                <li class="jump-container">
+                <li class="page-number jump-container">
                     <a href="{URL}" class="jump-page">{PageNumber}</a>
                 </li>
                 {/block:JumpPage}
@@ -761,7 +761,7 @@
     {/block:IfInfiniteScroll}
     <script src="http://static.tumblr.com/f8gk9za/Zcioakoiw/imagesloaded.pkgd.min.js"></script>
     <script src="http://static.tumblr.com/f8gk9za/dCooako9r/masonry.pkgd.min.js"></script>
-    <script src="http://static.tumblr.com/f8gk9za/xXAobqzzo/main.js"></script>
+    <script src="http://static.tumblr.com/f8gk9za/R8Xobr1kf/main.js"></script>
 
     {block:IfGoogleAnalyticsID}
     <script>

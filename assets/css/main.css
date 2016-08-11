@@ -320,7 +320,9 @@ pre {
 }
 
 /* I think I'll cheat instead of resetting all the top margins... */
+.single-col .type-text,
 .permalink .type-text,
+.single-col .type-chat,
 .permalink .type-chat {
     padding-top: 1px;
 }
@@ -964,8 +966,7 @@ pre {
     line-height: 1.188rem; /* 19px */
 }
 
-.show-page-numbers .current-container,
-.show-page-numbers .jump-container {
+.show-page-numbers .page-number {
     text-align: center;
 }
 .show-page-numbers .current-container:first-child {
@@ -1186,20 +1187,26 @@ pre {
         clear: both;
     }
 
-    #blog-footer .prev-container,
-    #blog-footer .next-container {
+    #blog-footer .pagination:not(.show-page-numbers) .prev-container,
+    #blog-footer .pagination:not(.show-page-numbers) .next-container {
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         -o-box-sizing: border-box;
         box-sizing: border-box;
     }
-    #blog-footer .prev-container {
+    #blog-footer .pagination:not(.show-page-numbers) .prev-container {
         padding-right: 0.625rem; /* 10px */
         text-align: right;
     }
-    #blog-footer .next-container {
+    #blog-footer .pagination:not(.show-page-numbers) .next-container {
         padding-left: 0.625rem; /* 10px */
         text-align: left;
+    }
+
+    .show-page-numbers #loading-message {
+        min-height: 1.813rem; /* 29px */
+        line-height: 1.813rem; /* 29px */
+        vertical-align: middle;
     }
 }
 

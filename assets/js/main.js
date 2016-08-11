@@ -194,11 +194,14 @@
                 pathParse: function(path, nextPage) {
                     return [ path.substring(0, path.lastIndexOf('/')) + '/', '' ];
                 },
+                // bufferPx: $(window).height() * 2, // default: 40
                 errorCallback: function() {
-                    var opts = $infScr.data('infinitescroll').options;
+                    var opts = $infScr.data('infinitescroll').options,
+                        $nav = $(opts.navSelector);
+
                     setTimeout(function() {
                         opts.loading.msg.fadeOut(opts.loading.speed, function() {
-                            $(opts.navSelector).show();
+                            if ( $nav.hasClass('show-page-numbers') ) $nav.show();
                         });
                     }, 2000);
                 },
