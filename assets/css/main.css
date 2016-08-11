@@ -900,11 +900,19 @@ pre {
 
 #loading-message,
 #blog-footer .pagination {
-    font-size: 0.625rem; /* 10px */
     line-height: 100%;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin: 0;
+}
+
+#loading-message {
+    text-align: center;
+    font-size: 0.5rem; /* 8px */
+}
+
+#blog-footer .pagination {
+    font-size: 0.625rem; /* 10px */
 }
 
 /* ===================

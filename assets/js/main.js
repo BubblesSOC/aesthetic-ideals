@@ -53,29 +53,47 @@
 
 
     // initialize photoset grid
-    // todo: hi-res photoset width, window resizing
+    // todo: hi-res photoset width
     var initPhotosetGrid = function( $post ) {
         if ( !$post.hasClass('type-photo') ) return;
 
         var $photoset = $post.find('.photo-container.photoset'),
             layout    = $photoset.data('layout') || [];
 
+        // wrap the photos in row divs according to the layout array
+        // ex: layout = ["2","2"]
         $.each(layout, function(i, columns) {
-            var $row = $photoset.children('.photo-link:lt(' + columns + ')');
+            $photoset.children('.photo-link').slice(0, columns)
+                     .wrapAll('<div class="photoset-row columns-' + columns + '" />');
+        });
 
-            $row.wrapAll('<div class="photoset-row columns-' + columns + '" />').imagesLoaded(function() {
-                var $rowImgs  = $row.find('img'),
-                    minHeight = Math.min.apply(null, $rowImgs.map(function() {
+        var resizePhotoset = function() {
+            $photoset.children('.photoset-row').each(function() {
+
+                // equalize the heights of the row's images by setting the height
+                // of the row div to the height of the smallest image
+                // see: 'Photoset Grid' section in main.css
+
+                var $row  = $(this),
+                    $imgs = $row.find('img'),
+                    minHeight = Math.min.apply( null, $imgs.map(function() {
                         return $(this).height();
-                    }));
+                    }).get() );
 
-                $row.parent('.photoset-row').height(minHeight);
-                $rowImgs.each(function() {
-                    if ($(this).height() == minHeight) return true;
-                    var margin = 0 - Math.ceil( ($(this).height() - minHeight) / 2 );
-                    $(this).css('top', margin + 'px');
+                $row.height(minHeight);
+                $imgs.each(function() {
+                    if ( $(this).height() == minHeight ) return true;
+
+                    // vertically center the larger images within view
+                    var top = 0 - Math.ceil( ($(this).height() - minHeight) / 2 );
+                    $(this).css('top', top + 'px');
                 });
             });
+        };
+
+        $photoset.imagesLoaded(function() {
+            resizePhotoset();
+            $(window).on('resize', resizePhotoset);
         });
     };
 
@@ -130,34 +148,40 @@
             // https://gist.github.com/gregrickaby/10383879
             // https://github.com/fk/masonite/blob/master/js/masonite.js
 
-            var dotdotdot = function() {
-                //
+            var Spinner = {
+                on: function(currPage) {
+                    var title = $loading.data('loading') + ' ' + currPage + ' / ' + $loading.data('total-pages');
+                    return $spinner.attr('title', title).addClass('spin');
+                },
+                off: function() {
+                    return $spinner.attr('title', '').removeClass('spin');
+                }
             };
 
             $infScr = $('.index .infinite-scroll #the-posts').infinitescroll({
                 loading: {
-                    finishedMsg: $loading.data('finished-msg'),
+                    finishedMsg: $loading.data('finished'),
                     msg: $('<p id="loading-message"></p>'),
                     selector: '#loading',
+                    speed: 400,
                     start: function(opts) {
-                        var $instance = $(this).data('infinitescroll'),
-                            $loadMsg  = opts.loading.msg.appendTo(opts.loading.selector),
-                            currPage  = opts.state.currPage + 1;
+                        var instance = $(this).data('infinitescroll'),
+                            $loadMsg = opts.loading.msg.appendTo(opts.loading.selector),
+                            currPage = opts.state.currPage + 1;
 
                         if (currPage <= opts.maxPage) {
-                            // todo: dotdotdot()
                             $loadMsg.text('Loading Page ' + currPage + ' of ' + opts.maxPage + '...');
+                            Spinner.on(currPage);
+                        } else {
+                            $loadMsg.text( opts.loading.finishedMsg );
                         }
 
                         $(opts.navSelector).hide();
-                        $spinner.css('opacity', 1);
                         $loadMsg.fadeIn(opts.loading.speed, function() {
-                            $instance.beginAjax(opts);
+                            instance.beginAjax(opts);
                         });
                     },
-                    finished: function(opts) {
-                        // if (!opts.state.isBeyondMaxPage)
-                        //     opts.loading.msg.fadeOut(opts.loading.speed);
+                    finished: function() {
                         return;
                     }
                 },
@@ -166,24 +190,23 @@
                 },
                 nextSelector: '#next-page a.next',
                 navSelector: '#blog-pagination',
-                // extraScrollPx: 150,
                 itemSelector: '.post',
                 pathParse: function(path, nextPage) {
                     return [ path.substring(0, path.lastIndexOf('/')) + '/', '' ];
                 },
-                // dataType: 'html',
-                // appendCallback: true,
-                // bufferPx: $(window).height() * 2,
                 errorCallback: function() {
-                    // todo
+                    var opts = $infScr.data('infinitescroll').options;
+                    setTimeout(function() {
+                        opts.loading.msg.fadeOut(opts.loading.speed, function() {
+                            $(opts.navSelector).show();
+                        });
+                    }, 2000);
                 },
-                // infid: 0, //Instance ID
-                // pixelsFromNavToBottom: undefined,
-                maxPage: $loading.data('total-pages'),
+                maxPage: $loading.data('total-pages')
                 // debug: true
             },
             function( newElements ) {
-    			var $posts  = $( newElements ).css({ opacity: 0 }),
+    			var $posts  = $(newElements).css({ opacity: 0 }),
                     postIds = $posts.map(function() {
                         return this.id;
                     }).get(),
@@ -201,7 +224,7 @@
                     }
 
                     if (opts && !opts.state.isBeyondMaxPage) {
-                        $spinner.css('opacity', 0);
+                        Spinner.off();
                         opts.loading.msg.fadeOut(opts.loading.speed);
                     }
 
