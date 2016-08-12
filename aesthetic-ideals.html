@@ -103,7 +103,7 @@
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
         <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/eLuoakle3/normalize.min.css">
         <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/dLCobs3r2/rapture-icons.css">
-        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/eosobrk00/main.css">
+        <link rel="stylesheet" href="http://static.tumblr.com/f8gk9za/i2Kobswpq/main.css">
 
         <!-- Custom Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i|Limelight|Trochut:400,400i,700&subset=latin-ext">
@@ -250,9 +250,6 @@
             .index .post-title a,
             .index .post-title a:hover {
                 color: {color:Headings};
-            }
-            .index .post-title a:hover {
-                text-decoration: underline;
             }
             .link-excerpt, .link-author {
                 color: {color:Text};
@@ -693,7 +690,7 @@
             {block:Pagination}
             {block:IfInfiniteScroll}
             <div id="loading" data-total-pages="{TotalPages}" data-current-page="{CurrentPage}" data-loading="{lang:Loading}" data-finished="{lang:No more posts}"{block:IfShowPageNumbers} class="show-page-numbers"{/block:IfShowPageNumbers}>
-                <span id="spinner" class="pointer icon-loading"></span>
+                <span id="spinner" class="pointer spinner icon-loading"></span>
             </div>
             {/block:IfInfiniteScroll}
 

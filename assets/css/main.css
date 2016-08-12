@@ -128,6 +128,50 @@ pre {
     font-size: 0.8125rem; /* 13px */
 }
 
+.spinner {
+    opacity: 0;
+
+    -webkit-transition-property: bottom, left, opacity;
+    -moz-transition-property: bottom, left, opacity;
+    -o-transition-property: bottom, left, opacity;
+    transition-property: bottom, left, opacity;
+
+    -webkit-transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+
+    -webkit-transition-timing-function: ease-in-out;
+    -moz-transition-timing-function: ease-in-out;
+    -o-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+}
+.spinner.spin {
+    opacity: 1;
+
+    -webkit-animation: spin 2s linear infinite;
+    -moz-animation: spin 2s linear infinite;
+    -o-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -ms-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
 /* ==========================================================================
     General Layout Styles
    ========================================================================== */
@@ -338,9 +382,12 @@ pre {
 .post-title {
     /* h1.heading */
     /* converted normalized h1 em vals to rem */
-    margin: 0.8125rem; /* 13px (~1em) */
+    margin: 0.8125rem; /* 13px (~.67em) */
     font-size: 1.625rem; /* 26px (~2em) */
     line-height: 125%;
+}
+.index .post-title a:hover {
+    text-decoration: underline;
 }
 
 .caption,
@@ -988,48 +1035,7 @@ pre {
 }
 
 #spinner {
-    opacity: 0;
     bottom: 5.25rem; /* 52px + 29px (#elevator) + 3px = 84px */
-
-    -webkit-transition-property: bottom, left, opacity;
-    -moz-transition-property: bottom, left, opacity;
-    -o-transition-property: bottom, left, opacity;
-    transition-property: bottom, left, opacity;
-
-    -webkit-transition-duration: 0.4s;
-    -moz-transition-duration: 0.4s;
-    -o-transition-duration: 0.4s;
-    transition-duration: 0.4s;
-
-    -webkit-transition-timing-function: ease-in-out;
-    -moz-transition-timing-function: ease-in-out;
-    -o-transition-timing-function: ease-in-out;
-    transition-timing-function: ease-in-out;
-}
-#spinner.spin {
-    opacity: 1;
-
-    -webkit-animation: spin 2s linear infinite;
-    -moz-animation: spin 2s linear infinite;
-    -o-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-    0% {
-        -ms-transform: rotate(0deg);
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% {
-        -ms-transform: rotate(360deg);
-        -webkit-transform: rotate(360deg);
-        -moz-transform: rotate(360deg);
-        -o-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
 }
 
 #elevator {
